@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Hearth &amp; Grain — Wood-Fired Bakery</title>
+
+  <meta
+    name="description"
+    content="Hearth & Grain is a wood-fired bakery baking one loaf a day, every day, from an 1911 icehouse on Pearl Street."
+  >
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Work+Sans:wght@400;500;600&display=swap"
+    rel="stylesheet"
+  >
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <nav class="nav">
+    <div class="wrap">
+      <a href="#" class="brand" aria-label="Hearth & Grain, home">
+        Hearth <span class="amp">&amp;</span> Grain
+      </a>
+
+      <button
+        class="nav-toggle"
+        id="navToggle"
+        aria-expanded="false"
+        aria-controls="navLinks"
+        aria-label="Toggle navigation menu"
+      >
+        ☰
+      </button>
+
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#schedule">This week's bake</a></li>
+        <li><a href="#menu">Menu</a></li>
+        <li><a href="#story">Our story</a></li>
+        <li><a href="#visit">Visit</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <div class="wrap">
+      <div class="hero-top">
+        <div>
+          <h1>Bread starts before the sun does.</h1>
+
+          <p class="hero-tagline">
+            One loaf a day, wood-fired in a hundred-year-old icehouse,
+            sold until the last one's gone — usually by ten.
+          </p>
+        </div>
+
+        <div class="loaf-badge" id="loafBadge">
+          <span class="eyebrow">TODAY'S LOAF</span>
+          <span class="loaf-name" id="loafName">
+            Miche au Levain
+          </span>
+        </div>
+      </div>
+
+      <div class="hero-stats">
+        <div>
+          <div class="num">18 hrs</div>
+          <div class="label">Cold ferment, every batch</div>
+        </div>
+
+        <div>
+          <div class="num">4:30 AM</div>
+          <div class="label">Ovens fire</div>
+        </div>
+
+        <div>
+          <div class="num">1911</div>
+          <div class="label">
+            The building — once the block's icehouse
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="schedule" id="schedule" aria-label="Weekly bake schedule">
+    <div class="wrap">
+      <div class="schedule-inner" id="scheduleInner">
+
+        <div class="schedule-day" data-day="1">
+          <div class="d">Mon</div>
+          <div class="bread">Miche au Levain</div>
+        </div>
+
+        <div class="schedule-day" data-day="2">
+          <div class="d">Tue</div>
+          <div class="bread">Seeded Rye</div>
+        </div>
+
+        <div class="schedule-day" data-day="3">
+          <div class="d">Wed</div>
+          <div class="bread">Pain de Campagne</div>
+        </div>
+
+        <div class="schedule-day" data-day="4">
+          <div class="d">Thu</div>
+          <div class="bread">Sesame Whole Wheat</div>
+        </div>
+
+        <div class="schedule-day" data-day="5">
+          <div class="d">Fri</div>
+          <div class="bread">Baguette Tradition</div>
+        </div>
+
+        <div class="schedule-day" data-day="6">
+          <div class="d">Sat</div>
+          <div class="bread">Olive Fougasse</div>
+        </div>
+
+        <div class="schedule-day" data-day="0">
+          <div class="d">Sun</div>
+          <div class="bread">Cinnamon Babka</div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="menu" id="menu">
+    <div class="wrap">
+
+      <div class="section-head">
+        <div class="kicker">At the counter</div>
+        <h2>Menu</h2>
+      </div>
+
+      <div class="menu-grid">
+
+        <div class="menu-col">
+          <h3>Bread</h3>
+
+          <ul>
+            <li class="menu-item">
+              <span class="name">
+                Miche au Levain
+                <span class="note">1 kg, country sourdough</span>
+              </span>
+              <span class="leader"></span>
+              <span class="price">$9</span>
+            </li>
+
+            <li class="menu-item">
+              <span class="name">Seeded Rye</span>
+              <span class="leader"></span>
+              <span class="price">$8</span>
+            </li>
+
+            <li class="menu-item">
+              <span class="name">Pain de Campagne</span>
+              <span class="leader"></span>
+              <span class="price">$7</span>
+            </li>
+
+            <li class="menu-item">
+              <span class="name">Sesame Whole Wheat</span>
+              <span class="leader"></span>
+              <span class="price">$7</span>
+            </li>
+
+            <li class="menu-item">
+              <span class="name">Baguette Tradition</span>
+              <span class="leader"></span>
+              <span class="price">$4.50</span>
+            </li>
+
+            <li class="menu-item">
+              <span class="name">Olive Fougasse</span>
+              <span class="leader"></span>
+              <span class="price">$8</span>
+            </li>
+
+            <li class="menu-item">
+              <span class="name">Cinnamon Babka</span>
+              <span class="leader"></span>
+              <span class="price">$11</span>
+            </li>
+
+            <li class="menu-item">
+              <span class="name">
+                Rosemary Focaccia
+                <span class="note">half sheet</span>
+              </span>
+              <span class="leader"></span>
+              <span class="price">$6</span>
+            </li>
+
+            <li class="menu-item">
+              <span class="name">
+                Dinner Rolls
+                <span class="note">set of 6</span>
+              </span>
+              <span class="leader"></span>
+              <span class="price">$6</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="menu-col">
+          <h3>Pastry</h3>
+
+          <ul>
+            <li class="menu-item">
+              <span class="name">Croissant</span>
+              <span class="leader"></span>
+              <span class="price">$4.50</span>
+            </li>
+
+            <li class="menu-item">
+              <span class="name">Pain au Chocolat</span>
+              <span class="leader"></span>
+              <span class="price">$5</span>
+            </li>
+
+            <li class="menu-item">
+              <span class="name">Morning Bun</span>
+              <span class="leader"></span>
+              <span class="price">$5</span>
+            </li>
+
+            <li class="menu-item">
+              <span class="name">Kouign-Amann</span>
+              <span class="leader"></span>
+              <span class="price">$5.50</span>
+            </li>
+
+            <li class="menu-item">
+              <span class="name">Canelé</span>
+              <span class="leader"></span>
+              <span class="price">$3.50</span>
+            </li>
+
+            <li class="menu-item">
+              <span class="name">Ginger Molasses Cookie</span>
+              <span class="leader"></span>
+              <span class="price">$3</span>
+            </li>
+
+            <li class="menu-item">
+              <span class="name">Brown Butter Tart</span>
+              <span class="leader"></span>
+              <span class="price">$6.50</span>
+            </li>
+
+            <li class="menu-item">
+              <span class="name">Sticky Bun</span>
+              <span class="leader"></span>
+              <span class="price">$5.50</span>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="story" id="story">
+    <div class="wrap">
+
+      <div class="section-head">
+        <div class="kicker story-kicker">Since 1994</div>
+        <h2>Our story</h2>
+      </div>
+
+      <div class="story-grid">
+
+        <blockquote class="story-quote">
+          “We don't make bread to be fast. We make it to be fed —
+          to the starter, to the fire, to whoever's waiting at the door.”
+
+          <cite>— Marisol Ortiz, founder</cite>
+        </blockquote>
+
+        <div class="story-body">
+          <p>
+            Hearth &amp; Grain opened in the old Pearl Street icehouse
+            in 1994, when Marisol Ortiz took over the empty cold-storage
+            building and installed a single wood-fired deck oven where
+            the ice used to sit. The brick walls, built to hold a
+            temperature, turned out to hold heat just as well.
+          </p>
+
+          <p>
+            The bakery has kept the same rhythm ever since: one starter,
+            fed twice daily since the first batch; one loaf baked each
+            day of the week, never two; ovens lit before dawn so the
+            first bread is ready by the time the block wakes up.
+            Nothing here is made ahead and held — what's on the shelf
+            is what came out that morning.
+          </p>
+
+          <p>
+            Marisol still opens most mornings. Her daughter Teo runs
+            the pastry bench now, and the two of them argue, amiably,
+            about whether the babka counts as bread or dessert.
+            It's on the schedule as bread. Teo has not conceded the point.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="visit" id="visit">
+    <div class="wrap">
+
+      <div class="section-head">
+        <div class="kicker">Come by</div>
+        <h2>Visit us</h2>
+      </div>
+
+      <div class="visit-grid">
+
+        <table class="hours-table">
+          <tbody>
+            <tr class="closed">
+              <td>Monday</td>
+              <td>Closed — baking &amp; prep</td>
+            </tr>
+
+            <tr>
+              <td>Tuesday</td>
+              <td>7:00 AM – 2:00 PM</td>
+            </tr>
+
+            <tr>
+              <td>Wednesday</td>
+              <td>7:00 AM – 2:00 PM</td>
+            </tr>
+
+            <tr>
+              <td>Thursday</td>
+              <td>7:00 AM – 2:00 PM</td>
+            </tr>
+
+            <tr>
+              <td>Friday</td>
+              <td>7:00 AM – 2:00 PM</td>
+            </tr>
+
+            <tr>
+              <td>Saturday</td>
+              <td>7:00 AM – 1:00 PM</td>
+            </tr>
+
+            <tr>
+              <td>Sunday</td>
+              <td>8:00 AM – 12:00 PM</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="visit-side">
+          <div class="addr">
+            <strong>Hearth &amp; Grain</strong>
+            118 Pearl Street<br>
+            Providence, RI 02903<br>
+            The old icehouse, side door
+          </div>
+
+          <a class="cta" href="tel:+14015550118">
+            Call to reserve — (401) 555-0118
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="wrap">
+
+      <div class="f-brand">Hearth &amp; Grain</div>
+
+      <ul class="f-links">
+        <li><a href="#schedule">This week's bake</a></li>
+        <li><a href="#menu">Menu</a></li>
+        <li><a href="#story">Our story</a></li>
+        <li><a href="#visit">Visit</a></li>
+      </ul>
+
+      <div class="f-copy">
+        © <span id="year"></span> Hearth &amp; Grain,
+        118 Pearl Street, Providence, RI. One loaf a day.
+      </div>
+
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
