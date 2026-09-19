@@ -38,6 +38,21 @@ Bash
 npm run dev
 Open http://localhost:5173 to view it in your browser.
 
+## 🔌 API Reference
+
+The backend API endpoint list, request examples, response shapes, validation
+rules, and intern implementation checklist are documented in
+[API_LIST.md](./API_LIST.md).
+
+After starting the backend, interactive Swagger documentation is available at
+http://localhost:5000/api-docs/.
+
+Run the backend separately with:
+
+```bash
+npm run dev:backend
+```
+
 📂 Project Structure
 Plaintext
 Hearth-Grain-Bakery-/
@@ -65,4 +80,3 @@ Commit your Changes (git commit -m 'Add some AmazingFeature')
 Push to the Branch (git push origin feature/AmazingFeature)
 
 Open a Pull Request
-

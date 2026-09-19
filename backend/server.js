@@ -1,5 +1,10 @@
 import express from 'express';
 import cors from 'cors';
+import fs from 'fs';
+import path from 'path';
+import swaggerUi from 'swagger-ui-express';
+import { fileURLToPath } from 'url';
+import YAML from 'yaml';
 import { initDb } from './db.js';
 import menuRoutes from './routes/menu.js';
 import orderRoutes from './routes/orders.js';
@@ -8,6 +13,10 @@ import interactionRoutes from './routes/interactions.js';
 
 const app = express();
 const PORT = process.env.PORT || 5000;
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
+const openApiDocument = YAML.parse(
+  fs.readFileSync(path.join(__dirname, 'openapi.yaml'), 'utf8')
+);
 
 // Initialize database
 initDb();
@@ -15,6 +24,7 @@ initDb();
 // Middlewares
 app.use(cors());
 app.use(express.json());
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(openApiDocument));
 
 // Request logging
 app.use((req, res, next) => {
