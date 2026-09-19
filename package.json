@@ -1,0 +1,17 @@
+{
+  "name": "hearth-grain-bakery-root",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Full-stack artisan bakery platform",
+  "scripts": {
+    "dev:backend": "npm run dev --prefix backend",
+    "dev:frontend": "npm run dev --prefix my-bakery-app",
+    "dev": "concurrently -n \"BACKEND,FRONTEND\" -c \"magenta,cyan\" \"npm run dev --prefix backend\" \"npm run dev --prefix my-bakery-app\"",
+    "start": "node backend/server.js",
+    "build": "npm run build --prefix my-bakery-app",
+    "install:all": "npm install && npm install --prefix backend && npm install --prefix my-bakery-app"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.2"
+  }
+}
