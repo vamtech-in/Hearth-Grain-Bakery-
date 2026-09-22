@@ -44,7 +44,6 @@ export default function Menu() {
     return matchesCat && matchesSearch;
   });
 
-  // Group by category when 'all' is selected
   const groupedCategories = ['bread', 'pastry', 'coffee'];
   const categoryHeaders = {
     bread: { num: '01', title: 'Artisan Bread', desc: 'Slow-fermented with wild yeast and naturally leavened', img: '/images/image4.jpg' },
@@ -55,9 +54,14 @@ export default function Menu() {
   return (
     <section id="menu" className="menu-section">
       <div className="container">
+        
+        {/* Section Heading */}
         <div className="section-heading menu-heading">
           <div>
-            <span className="eyebrow">OUR ARTISAN MENU</span>
+            <span className="eyebrow">
+              <span className="eyebrow-line"></span>
+              OUR ARTISAN MENU
+            </span>
             <h2>Simple ingredients. <span>Beautiful results.</span></h2>
           </div>
           <p>Everything is made in small batches every single morning using heirloom grains, cultured butter, and wild leaven.</p>
@@ -101,6 +105,7 @@ export default function Menu() {
           </div>
         </div>
 
+        {/* States: Loading, Empty, Categorized or Filtered Grid */}
         {loading ? (
           <div className="menu-loading-state">
             <div className="baking-spinner">🥖</div>
@@ -117,7 +122,6 @@ export default function Menu() {
             </button>
           </div>
         ) : activeCategory === 'all' && !searchQuery ? (
-          /* Grouped Categorized View */
           <div className="menu-grid">
             {groupedCategories.map(catKey => {
               const catInfo = categoryHeaders[catKey];
@@ -144,38 +148,42 @@ export default function Menu() {
                   
                   <ul className="dotted-menu-list">
                     {catItems.map(item => (
-                      <li key={item.id} className={`dotted-item-card ${!item.inStock ? 'sold-out' : ''}`}>
-                        <div className="item-main-row">
-                          <span className="item-name">{item.name}</span>
-                          <span className="dotted-line" aria-hidden="true"></span>
-                          <span className="item-price">₹{item.price}</span>
-                        </div>
-                        
-                        {item.description && (
-                          <p className="item-card-desc">{item.description}</p>
-                        )}
+                      <li key={item.id} className={`dotted-item ${!item.inStock ? 'sold-out' : ''}`}>
+                        <div style={{ width: '100%' }}>
+                          <div style={{ display: 'flex', alignItems: 'baseline', width: '100%' }}>
+                            <span className="item-name">{item.name}</span>
+                            <span className="dotted-line" aria-hidden="true"></span>
+                            <span className="item-price">₹{item.price}</span>
+                          </div>
 
-                        <div className="item-card-footer">
-                          {item.tags && item.tags.length > 0 && (
-                            <div className="item-tags">
-                              {item.tags.map((t, idx) => (
-                                <span key={idx} className="item-tag-pill">{t}</span>
-                              ))}
-                            </div>
+                          {item.description && (
+                            <p style={{ fontSize: '12px', color: 'var(--text-light)', marginTop: '4px' }}>
+                              {item.description}
+                            </p>
                           )}
 
-                          {item.inStock ? (
-                            <button
-                              type="button"
-                              className="add-to-basket-btn"
-                              onClick={() => addToCart(item)}
-                              aria-label={`Add ${item.name} to basket`}
-                            >
-                              + Add to Basket
-                            </button>
-                          ) : (
-                            <span className="sold-out-badge">Sold Out Today</span>
-                          )}
+                          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginTop: '8px' }}>
+                            {item.tags && item.tags.length > 0 ? (
+                              <div style={{ display: 'flex', gap: '6px' }}>
+                                {item.tags.map((t, idx) => (
+                                  <span key={idx} className="item-tag-pill">{t}</span>
+                                ))}
+                              </div>
+                            ) : <span />}
+
+                            {item.inStock ? (
+                              <button
+                                type="button"
+                                className="button button-secondary"
+                                style={{ padding: '6px 12px', minHeight: '32px', fontSize: '10px' }}
+                                onClick={() => addToCart(item)}
+                              >
+                                + Add
+                              </button>
+                            ) : (
+                              <span style={{ fontSize: '10px', fontWeight: '700', color: 'var(--compote-red)' }}>Sold Out</span>
+                            )}
+                          </div>
                         </div>
                       </li>
                     ))}
@@ -185,60 +193,48 @@ export default function Menu() {
             })}
           </div>
         ) : (
-          /* Filtered Grid View */
-          <div className="filtered-items-grid">
+          <div className="menu-grid">
             {filteredItems.map(item => (
-              <div key={item.id} className={`filtered-item-card ${!item.inStock ? 'sold-out' : ''}`}>
-                <div className="filtered-item-img-wrap">
-                  <img src={item.image || '/images/image1.jpg'} alt={item.name} />
-                  {!item.inStock && <span className="sold-out-overlay-badge">Sold Out</span>}
+              <div key={item.id} className="menu-category" style={{ display: 'flex', flexDirection: 'column' }}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
+                  <h3 style={{ fontSize: '22px' }}>{item.name}</h3>
+                  <span className="item-price" style={{ fontSize: '16px' }}>₹{item.price}</span>
                 </div>
-                <div className="filtered-item-body">
-                  <div className="filtered-item-header">
-                    <h4>{item.name}</h4>
-                    <span className="filtered-item-price">₹{item.price}</span>
-                  </div>
-                  <p className="filtered-item-desc">{item.description}</p>
-                  
-                  {item.tags && item.tags.length > 0 && (
-                    <div className="item-tags">
-                      {item.tags.map((t, idx) => (
-                        <span key={idx} className="item-tag-pill">{t}</span>
-                      ))}
-                    </div>
+                <p style={{ marginTop: '10px', fontSize: '13px' }}>{item.description}</p>
+                <div style={{ marginTop: 'auto', paddingTop: '20px' }}>
+                  {item.inStock ? (
+                    <button
+                      type="button"
+                      className="button button-primary"
+                      style={{ width: '100%', minHeight: '40px' }}
+                      onClick={() => addToCart(item)}
+                    >
+                      + Add to Basket
+                    </button>
+                  ) : (
+                    <button type="button" className="button button-secondary" style={{ width: '100%', minHeight: '40px' }} disabled>
+                      Sold Out Today
+                    </button>
                   )}
-
-                  <div className="filtered-item-actions">
-                    {item.inStock ? (
-                      <button
-                        type="button"
-                        className="button button-primary button-small button-block"
-                        onClick={() => addToCart(item)}
-                      >
-                        + Add to Basket • ₹{item.price}
-                      </button>
-                    ) : (
-                      <button type="button" className="button button-secondary button-small button-block" disabled>
-                        Sold Out Today
-                      </button>
-                    )}
-                  </div>
                 </div>
               </div>
             ))}
           </div>
         )}
 
+        {/* Menu Footer */}
         <div className="menu-footer">
           <p>Planning a morning event or have specific dietary inquiries?</p>
           <button 
             type="button" 
-            className="text-link-button"
+            className="text-link"
+            style={{ background: 'none', border: 'none', cursor: 'pointer' }}
             onClick={() => setIsReservationOpen(true)}
           >
             Speak with our team &amp; Reserve <span aria-hidden="true">→</span>
           </button>
         </div>
+
       </div>
     </section>
   );

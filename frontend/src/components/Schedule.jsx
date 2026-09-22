@@ -43,7 +43,6 @@ export default function Schedule() {
   const isToday = activeSpecial.index === currentDayIndex;
 
   const handlePreorder = () => {
-    // Add special bake to cart
     addToCart({
       id: `special-${activeSpecial.index}`,
       name: `${activeSpecial.bake} (${activeSpecial.name} Special)`,
@@ -57,14 +56,20 @@ export default function Schedule() {
   return (
     <section id="schedule" className="schedule-section">
       <div className="container">
+        
+        {/* Section Heading */}
         <div className="section-heading schedule-heading">
           <div>
-            <span className="eyebrow">WHAT'S IN THE OVEN</span>
+            <span className="eyebrow">
+              <span className="eyebrow-line"></span>
+              WHAT'S IN THE OVEN
+            </span>
             <h2>Fresh from the hearth, <span>every day.</span></h2>
           </div>
           <p>Each dawn brings a dedicated artisan bake. Click any day below to explore the recipe and reserve your loaf.</p>
         </div>
 
+        {/* Schedule Grid */}
         <div className="schedule-grid" role="list">
           {bakes.map((item) => {
             const isSelected = selectedDayIndex === item.index;
@@ -75,14 +80,13 @@ export default function Schedule() {
                 key={item.index} 
                 role="listitem"
                 tabIndex={0}
-                className={`schedule-day ${isTodayItem ? 'today' : ''} ${isSelected ? 'selected' : ''}`}
+                className={`schedule-day ${isTodayItem ? 'today' : ''} ${isSelected && !isTodayItem ? 'selected' : ''}`}
                 onClick={() => setSelectedDayIndex(item.index)}
                 onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') setSelectedDayIndex(item.index); }}
               >
-                <div className="day-top-meta">
-                  <span className="day-name">{item.dayName}</span>
-                  {isTodayItem && <span className="today-chip">TODAY</span>}
-                </div>
+                <span className="day-name">
+                  {item.dayName} {isTodayItem && 'TODAY'}
+                </span>
                 <strong>{item.name}</strong>
                 <span className="day-bake">{item.bake}</span>
                 <span className="day-time">Ready {item.time}</span>
@@ -91,30 +95,33 @@ export default function Schedule() {
           })}
         </div>
 
-        <div className="today-bake-spotlight">
-          <div className="spotlight-content">
+        {/* Specialty Bake Spotlight Box */}
+        <div className="today-bake">
+          <div>
             <span className="today-bake-label">
-              {isToday ? "TODAY'S SPECIALTY BAKE" : `${activeSpecial.name.toUpperCase()}'S SPECIALTY BAKE`}
+              {isToday ? "SUNDAY'S SPECIALTY BAKE" : `${activeSpecial.name.toUpperCase()}'S SPECIALTY BAKE`}
             </span>
-            <h3 className="spotlight-title">{activeSpecial.bake}</h3>
-            <p className="spotlight-desc">{activeSpecial.description}</p>
-            <div className="spotlight-meta">
+            <h3>{activeSpecial.bake}</h3>
+            <p style={{ marginTop: '8px', fontSize: '15px', color: 'var(--text-light)' }}>
+              {activeSpecial.description}
+            </p>
+            <div style={{ display: 'flex', gap: '20px', marginTop: '14px', fontSize: '12px', fontWeight: '700', color: 'var(--coffee-soft)' }}>
               <span>⏱️ Oven Hot from {activeSpecial.time}</span>
               <span>🥖 Small Batch Limited Quantities</span>
             </div>
           </div>
 
-          <div className="spotlight-action">
-            <button 
-              type="button" 
-              className="button button-primary preorder-button"
-              onClick={handlePreorder}
-            >
-              {isToday ? "Reserve Today's Loaf" : `Pre-order for ${activeSpecial.name}`}
-              <span aria-hidden="true">→</span>
-            </button>
-          </div>
+          <button 
+            type="button" 
+            className="button button-primary"
+            onClick={handlePreorder}
+            style={{ whiteSpace: 'nowrap', flexShrink: 0 }}
+          >
+            {isToday ? "Pre-order for Sunday" : `Pre-order for ${activeSpecial.name}`}
+            <span aria-hidden="true">→</span>
+          </button>
         </div>
+
       </div>
     </section>
   );

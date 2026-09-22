@@ -29,9 +29,15 @@ export default function Footer() {
   return (
     <footer className="site-footer">
       <div className="container footer-grid">
+        
+        {/* Footer Brand & Newsletter */}
         <div className="footer-brand">
           <a href="#home" className="brand">
-            <span className="brand-mark">H&amp;G</span>
+            <img
+              src="/favicon.png"
+              alt="Hearth & Grain"
+              className="brand-logo"
+            />
             <span className="brand-text">
               <strong>Hearth &amp; Grain</strong>
               <small>ARTISAN BAKERY</small>
@@ -59,6 +65,7 @@ export default function Footer() {
           </div>
         </div>
 
+        {/* Explore Links */}
         <div className="footer-links">
           <h4>Explore</h4>
           <a href="#home">Home</a>
@@ -69,6 +76,7 @@ export default function Footer() {
           <a href="#visit">Visit Us</a>
         </div>
 
+        {/* Bakery Services & Staff Portal */}
         <div className="footer-links">
           <h4>Bakery Services</h4>
           <button type="button" className="footer-link-btn" onClick={() => setIsTrackerOpen(true)}>
@@ -80,7 +88,7 @@ export default function Footer() {
           <a href="tel:+919876543210">Call: +91 98765 43210</a>
           <a href="mailto:hello@hearthandgrain.com">hello@hearthandgrain.com</a>
 
-          <div className="staff-portal-trigger-box">
+          <div className="staff-portal-trigger-box" style={{ marginTop: '14px' }}>
             <button 
               type="button"
               className="staff-portal-btn"
@@ -91,6 +99,7 @@ export default function Footer() {
             </button>
           </div>
         </div>
+
       </div>
 
       <div className="container footer-bottom">

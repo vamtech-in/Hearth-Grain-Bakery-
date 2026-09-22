@@ -44,7 +44,10 @@ export default function Visit() {
     <section id="visit" className="visit-section">
       <div className="container visit-grid">
         <div className="visit-content">
-          <span className="eyebrow">COME SAY HELLO</span>
+          <span className="eyebrow">
+            <span className="eyebrow-line"></span>
+            COME SAY HELLO
+          </span>
           <h2>Your morning <span>starts here.</span></h2>
           <p>Drop by for a warm loaf fresh from the peel, stay for a cup of single-origin coffee, and leave with something delicious.</p>
 
@@ -95,7 +98,7 @@ export default function Visit() {
               <div className="inquiry-fields">
                 <input
                   type="text"
-                  placeholder="Your Name"
+                  placeholder="Your Name *"
                   required
                   value={inquiryName}
                   onChange={e => setInquiryName(e.target.value)}
@@ -108,7 +111,7 @@ export default function Visit() {
                 />
               </div>
               <textarea
-                placeholder="Special request, bulk catering, or gluten question..."
+                placeholder="Special request, bulk catering, or gluten question... *"
                 required
                 rows="2"
                 value={inquiryMessage}

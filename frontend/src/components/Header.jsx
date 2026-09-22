@@ -37,7 +37,7 @@ export default function Header() {
         {/* Header actions */}
         <div className="header-right-tools">
 
-          {/* Basket */}
+          {/* Basket - Fixed spacing and clean counter */}
           <button
             type="button"
             className="cart-toggle-badge-btn"
@@ -54,7 +54,7 @@ export default function Header() {
             )}
           </button>
 
-          {/* Mobile menu */}
+          {/* Mobile menu toggle */}
           <button
             id="navToggle"
             className={`nav-toggle ${navOpen ? 'open' : ''}`}
@@ -96,7 +96,7 @@ export default function Header() {
             Visit
           </a>
 
-          {/* Track Order */}
+          {/* Track Order - Styled cleanly as a nav action */}
           <button
             type="button"
             className="nav-link-btn"
@@ -110,7 +110,7 @@ export default function Header() {
           {/* Book Table */}
           <button
             type="button"
-            className="nav-button"
+            className="button button-primary nav-button"
             onClick={() =>
               handleNavAction(() => setIsReservationOpen(true))
             }
