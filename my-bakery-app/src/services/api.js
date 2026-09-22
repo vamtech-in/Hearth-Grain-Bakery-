@@ -67,7 +67,11 @@ export const bakeryApi = {
   getReviews: () => request('/reviews'),
   submitReview: (reviewData) => request('/reviews', { method: 'POST', body: JSON.stringify(reviewData) }),
   submitContact: (contactData) => request('/contact', { method: 'POST', body: JSON.stringify(contactData) }),
-  subscribeNewsletter: (email) => request('/newsletter', { method: 'POST', body: JSON.stringify({ email }) }),
+  // Admin Auth & Stats
+  verifyAdminPin: (pin, role) => request('/admin/verify', {
+    method: 'POST',
+    body: JSON.stringify({ pin, role })
+  }),
   getStats: () => request('/stats'),
   checkHealth: () => request('/health')
 };

@@ -19,8 +19,48 @@ export function CartProvider({ children }) {
   const [isTrackerOpen, setIsTrackerOpen] = useState(false);
   const [activeTrackingId, setActiveTrackingId] = useState('');
   const [isReservationOpen, setIsReservationOpen] = useState(false);
-  const [isAdminOpen, setIsAdminOpen] = useState(false);
+  const [isAdminOpen, setIsAdminOpen] = useState(() => {
+    if (typeof window !== 'undefined') {
+      const path = window.location.pathname.toLowerCase();
+      const hash = window.location.hash.toLowerCase();
+      return path.includes('/admin') || hash === '#admin';
+    }
+    return false;
+  });
   const [toasts, setToasts] = useState([]);
+
+  // Listen to URL hash/pathname changes (e.g. #admin or /admin)
+  useEffect(() => {
+    const handleUrlChange = () => {
+      const path = window.location.pathname.toLowerCase();
+      const hash = window.location.hash.toLowerCase();
+      if (path.includes('/admin') || hash === '#admin') {
+        setIsAdminOpen(true);
+      }
+    };
+
+    window.addEventListener('popstate', handleUrlChange);
+    window.addEventListener('hashchange', handleUrlChange);
+    handleUrlChange();
+
+    return () => {
+      window.removeEventListener('popstate', handleUrlChange);
+      window.removeEventListener('hashchange', handleUrlChange);
+    };
+  }, []);
+
+  // Sync URL hash when admin modal open/close state changes
+  useEffect(() => {
+    if (isAdminOpen) {
+      if (window.location.hash !== '#admin' && !window.location.pathname.includes('/admin')) {
+        window.history.replaceState(null, '', '#admin');
+      }
+    } else {
+      if (window.location.hash === '#admin') {
+        window.history.replaceState(null, '', window.location.pathname);
+      }
+    }
+  }, [isAdminOpen]);
 
   useEffect(() => {
     try {

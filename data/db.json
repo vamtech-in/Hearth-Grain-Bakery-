@@ -273,7 +273,7 @@
       "pickupTime": "Today, within 45 mins",
       "deliveryAddress": null,
       "paymentMethod": "counter",
-      "status": "In the Oven / Baking",
+      "status": "Cancelled",
       "items": [
         {
           "id": "br-1",
@@ -292,7 +292,7 @@
       "packagingFee": 15,
       "total": 495,
       "notes": "Please slice sourdough",
-      "updatedAt": "2026-09-19T05:18:37.087Z"
+      "updatedAt": "2026-09-22T17:34:22.168Z"
     },
     {
       "id": "HG-7821",
@@ -303,7 +303,7 @@
       "fulfillmentType": "pickup",
       "pickupTime": "11:00 AM",
       "paymentMethod": "counter",
-      "status": "Ready for Pickup",
+      "status": "Cancelled",
       "items": [
         {
           "id": "br-1",
@@ -321,7 +321,8 @@
       "subtotal": 420,
       "packagingFee": 15,
       "total": 435,
-      "notes": "Please slice the Country Sourdough loaf."
+      "notes": "Please slice the Country Sourdough loaf.",
+      "updatedAt": "2026-09-22T17:34:25.541Z"
     },
     {
       "id": "HG-7820",
@@ -332,7 +333,7 @@
       "fulfillmentType": "delivery",
       "deliveryAddress": "Flat 402, Green Meadows, 24 Elm Avenue",
       "paymentMethod": "upi",
-      "status": "Completed",
+      "status": "Cancelled",
       "items": [
         {
           "id": "pa-2",
@@ -350,7 +351,8 @@
       "subtotal": 640,
       "packagingFee": 25,
       "total": 665,
-      "notes": "Extra hot cappuccino please."
+      "notes": "Extra hot cappuccino please.",
+      "updatedAt": "2026-09-22T17:34:28.689Z"
     }
   ],
   "reservations": [
