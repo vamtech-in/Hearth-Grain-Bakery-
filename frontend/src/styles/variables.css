@@ -1,0 +1,31 @@
+:root {
+  /* Color Palette - Hearth & Grain Bakery */
+  --bg-primary: #fcf9f5;
+  --bg-secondary: #f4ede2;
+  --bg-card: #ffffff;
+  
+  --text-main: #2d2422;
+  --text-muted: #6b5c56;
+  --text-light: #8c7b73;
+  
+  --accent-primary: #b85d33;
+  --accent-hover: #9c4c26;
+  --accent-light: #faeade;
+  
+  --border-color: #e6dec5;
+  --border-light: #f0ebd9;
+  
+  --shadow-sm: 0 2px 8px rgba(45, 36, 34, 0.04);
+  --shadow-md: 0 8px 24px rgba(45, 36, 34, 0.08);
+  --shadow-lg: 0 16px 40px rgba(45, 36, 34, 0.12);
+  
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+  --radius-full: 9999px;
+  
+  --font-heading: 'Playfair Display', serif;
+  --font-body: 'Plus Jakarta Sans', sans-serif;
+  
+  --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}

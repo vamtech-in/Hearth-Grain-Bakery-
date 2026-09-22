@@ -1,0 +1,47 @@
+/* Base Button Style */
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 14px 28px;
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  font-weight: 600;
+  border-radius: var(--radius-full);
+  transition: var(--transition);
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+/* Primary Accent Button */
+.button-primary {
+  background-color: var(--accent-primary);
+  color: #ffffff;
+  box-shadow: var(--shadow-sm);
+}
+
+.button-primary:hover {
+  background-color: var(--accent-hover);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+/* Secondary / Outline Button */
+.button-secondary {
+  background-color: transparent;
+  color: var(--text-main);
+  border: 2px solid var(--border-color);
+}
+
+.button-secondary:hover {
+  background-color: var(--bg-secondary);
+  border-color: var(--text-main);
+  transform: translateY(-2px);
+}
+
+/* Small Button Modifier */
+.button-sm {
+  padding: 8px 18px;
+  font-size: 0.875rem;
+}
