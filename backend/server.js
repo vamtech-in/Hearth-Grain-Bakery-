@@ -58,6 +58,15 @@ app.use((err, req, res, next) => {
   res.status(500).json({ success: false, error: 'Internal server error' });
 });
 
-app.listen(PORT, () => {
+const server = app.listen(PORT, () => {
   console.log(`🥖 Hearth & Grain Bakery API Server running at http://localhost:${PORT}`);
+});
+
+server.on('error', (err) => {
+  if (err.code === 'EADDRINUSE') {
+    console.error(`❌ Port ${PORT} is already in use by another running process.`);
+  } else {
+    console.error('Server failed to start:', err);
+  }
+  process.exit(1);
 });
