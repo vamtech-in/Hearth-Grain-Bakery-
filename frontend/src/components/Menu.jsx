@@ -2,8 +2,25 @@ import React, { useState, useEffect } from 'react';
 import { bakeryApi } from '../services/api';
 import { useCart } from '../context/CartContext';
 
+// Shown whenever the live bakery API is unreachable or returns nothing,
+// so the menu section is never blank for the visitor.
+const FALLBACK_MENU = [
+  { id: 'fb-br-1', name: 'Country Sourdough', category: 'bread', price: 220, description: '24-hour wild-yeast fermented, crackling crust.', tags: ['Bestseller'], inStock: true, image: '/images/image4.jpg' },
+  { id: 'fb-br-2', name: 'Seeded Rye', category: 'bread', price: 200, description: 'Flax, sunflower and caraway seed crust.', tags: [], inStock: true, image: '/images/image4.jpg' },
+  { id: 'fb-br-3', name: 'Baguette Tradition', category: 'bread', price: 140, description: 'Crisp Parisian-style baguette, baked twice daily.', tags: [], inStock: true, image: '/images/image4.jpg' },
+  { id: 'fb-br-4', name: 'Whole Wheat Loaf', category: 'bread', price: 190, description: 'Stoneground whole wheat, tender crumb.', tags: [], inStock: true, image: '/images/image4.jpg' },
+  { id: 'fb-br-5', name: 'Olive & Rosemary Focaccia', category: 'bread', price: 210, description: 'Kalamata olives, virgin olive oil, sea salt.', tags: [], inStock: true, image: '/images/image4.jpg' },
+  { id: 'fb-pa-1', name: 'Butter Croissant', category: 'pastry', price: 110, description: '72-hour laminated, all butter.', tags: ['Bestseller'], inStock: true, image: '/images/image3.jpg' },
+  { id: 'fb-pa-2', name: 'Almond Croissant', category: 'pastry', price: 150, description: 'Frangipane-filled, toasted almond flakes.', tags: [], inStock: true, image: '/images/image3.jpg' },
+  { id: 'fb-pa-3', name: 'Cinnamon Babka', category: 'pastry', price: 180, description: 'Swirled with cinnamon sugar, brushed with syrup.', tags: [], inStock: true, image: '/images/image3.jpg' },
+  { id: 'fb-pa-4', name: 'Pain au Chocolat', category: 'pastry', price: 130, description: 'Dark chocolate batons, flaky layers.', tags: [], inStock: true, image: '/images/image3.jpg' },
+  { id: 'fb-co-1', name: 'Single-Origin Espresso', category: 'coffee', price: 90, description: 'Rotating single-origin, brewed to order.', tags: [], inStock: true, image: '/images/image5.jpg' },
+  { id: 'fb-co-2', name: 'Oat Milk Flat White', category: 'coffee', price: 130, description: 'Silky micro-foam, house-made oat milk.', tags: ['Popular'], inStock: true, image: '/images/image5.jpg' },
+  { id: 'fb-co-3', name: 'Cold Brew', category: 'coffee', price: 140, description: '18-hour steeped, smooth and low-acid.', tags: [], inStock: true, image: '/images/image5.jpg' }
+];
+
 export default function Menu() {
-  const [items, setItems] = useState([]);
+  const [items, setItems] = useState(FALLBACK_MENU);
   const [activeCategory, setActiveCategory] = useState('all');
   const [searchQuery, setSearchQuery] = useState('');
   const [loading, setLoading] = useState(true);
@@ -13,11 +30,14 @@ export default function Menu() {
     try {
       setLoading(true);
       const res = await bakeryApi.getMenu();
-      if (res.success && res.data) {
+      if (res.success && Array.isArray(res.data) && res.data.length > 0) {
         setItems(res.data);
+      } else {
+        setItems(FALLBACK_MENU);
       }
     } catch (err) {
-      console.error('Failed to load menu items:', err);
+      console.error('Failed to load menu items, showing offline menu:', err);
+      setItems(FALLBACK_MENU);
     } finally {
       setLoading(false);
     }

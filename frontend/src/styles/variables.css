@@ -1,31 +1,117 @@
+/* =========================================================
+   Hearth & Grain — Design Tokens
+   A single source of truth for color, type, spacing & motion.
+========================================================= */
+
 :root {
-  /* Color Palette - Hearth & Grain Bakery */
-  --bg-primary: #fcf9f5;
-  --bg-secondary: #f4ede2;
-  --bg-card: #ffffff;
-  
-  --text-main: #2d2422;
-  --text-muted: #6b5c56;
-  --text-light: #8c7b73;
-  
-  --accent-primary: #b85d33;
-  --accent-hover: #9c4c26;
-  --accent-light: #faeade;
-  
-  --border-color: #e6dec5;
-  --border-light: #f0ebd9;
-  
-  --shadow-sm: 0 2px 8px rgba(45, 36, 34, 0.04);
-  --shadow-md: 0 8px 24px rgba(45, 36, 34, 0.08);
-  --shadow-lg: 0 16px 40px rgba(45, 36, 34, 0.12);
-  
-  --radius-sm: 8px;
-  --radius-md: 12px;
-  --radius-lg: 20px;
-  --radius-full: 9999px;
-  
-  --font-heading: 'Playfair Display', serif;
-  --font-body: 'Plus Jakarta Sans', sans-serif;
-  
-  --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  /* ---- Brand color ramps ---- */
+  --coffee-950: #1c110b;
+  --coffee-900: #271911;
+  --coffee-800: #3b241d;
+  --coffee-700: #4f3126;
+  --coffee-600: #6b4636;
+  --coffee-500: #8a6250;
+  --coffee-300: #b99a89;
+  --coffee-100: #e7d9cd;
+
+  --flour-50: #fffdfa;
+  --flour-100: #fffaf2;
+  --flour-200: #faf1e2;
+  --flour-300: #f2e4cd;
+
+  --amber-400: #e0954c;
+  --amber-500: #d97736;
+  --amber-600: #bd611f;
+  --amber-700: #954b18;
+
+  --compote-500: #a3341f;
+  --compote-600: #8c2d19;
+  --compote-700: #6f2313;
+
+  --success-500: #2f7d4f;
+  --success-100: #e3f3e9;
+  --danger-500: #b3261e;
+  --danger-100: #fbe6e4;
+  --info-500: #3468a6;
+  --info-100: #e5eef8;
+
+  /* ---- Semantic surface & text ---- */
+  --surface: var(--flour-100);
+  --surface-raised: var(--flour-50);
+  --surface-sunken: var(--flour-200);
+  --surface-dark: var(--coffee-900);
+  --surface-dark-raised: var(--coffee-800);
+
+  --text: var(--coffee-800);
+  --text-muted: #7c6151;
+  --text-faint: #a4897a;
+  --text-on-dark: var(--flour-100);
+  --text-on-dark-muted: #cbb6a7;
+
+  --border: rgba(59, 36, 29, 0.14);
+  --border-strong: rgba(59, 36, 29, 0.26);
+  --border-on-dark: rgba(255, 250, 242, 0.16);
+
+  --accent: var(--amber-500);
+  --accent-strong: var(--amber-600);
+  --accent-contrast: var(--compote-600);
+
+  --focus-ring: var(--amber-600);
+
+  /* ---- Elevation ---- */
+  --shadow-xs: 0 1px 2px rgba(28, 17, 11, 0.06);
+  --shadow-sm: 0 4px 12px rgba(28, 17, 11, 0.08);
+  --shadow-md: 0 10px 28px rgba(28, 17, 11, 0.12);
+  --shadow-lg: 0 24px 56px rgba(28, 17, 11, 0.18);
+  --shadow-inset: inset 0 1px 2px rgba(28, 17, 11, 0.08);
+
+  /* ---- Radius scale ---- */
+  --radius-xs: 6px;
+  --radius-sm: 10px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --radius-full: 999px;
+
+  /* ---- Spacing scale ---- */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-10: 40px;
+  --space-12: 48px;
+  --space-16: 64px;
+  --space-20: 80px;
+
+  /* ---- Layout ---- */
+  --container-max: 1240px;
+  --container-pad: clamp(20px, 5vw, 48px);
+  --nav-height: 76px;
+
+  /* ---- Typography ---- */
+  --font-display: 'Fraunces', Georgia, serif;
+  --font-body: 'Work Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+
+  --fs-h1: clamp(2.4rem, 4.6vw, 3.75rem);
+  --fs-h2: clamp(1.9rem, 3.2vw, 2.5rem);
+  --fs-h3: clamp(1.35rem, 2vw, 1.65rem);
+  --fs-h4: 1.15rem;
+  --fs-body-lg: 1.08rem;
+  --fs-body: 1rem;
+  --fs-small: 0.9rem;
+  --fs-xs: 0.78rem;
+
+  /* ---- Motion ---- */
+  --ease: cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-fast: 0.16s var(--ease);
+  --transition: 0.24s var(--ease);
+  --transition-slow: 0.4s var(--ease);
+
+  /* ---- Z-index scale ---- */
+  --z-header: 100;
+  --z-drawer: 200;
+  --z-modal: 300;
+  --z-toast: 400;
 }

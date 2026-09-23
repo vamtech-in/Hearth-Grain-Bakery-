@@ -1,78 +1,126 @@
-/* Footer Section */
+/* =========================================================
+   Footer
+========================================================= */
+
 .site-footer {
-  background-color: var(--text-main);
-  color: var(--bg-primary);
-  padding: 70px 0 30px;
+  background: var(--coffee-950);
+  color: var(--text-on-dark-muted);
 }
 
 .footer-grid {
   display: grid;
-  grid-template-columns: 1.2fr 1fr 1fr;
-  gap: 48px;
-  margin-bottom: 50px;
+  grid-template-columns: 1.4fr 1fr 1fr;
+  gap: var(--space-10);
+  padding-top: var(--space-16);
+  padding-bottom: var(--space-10);
 }
 
-.footer-col h4 {
-  color: #ffffff;
-  font-size: 1.2rem;
-  margin-bottom: 20px;
+.footer-brand .brand-text strong { color: var(--flour-50); }
+.footer-brand > p {
+  margin-top: var(--space-4);
+  max-width: 38ch;
+  font-size: 0.9rem;
+  line-height: 1.6;
 }
 
-.footer-col p {
-  color: #b5a8a2;
-  font-size: 0.95rem;
-  margin-bottom: 20px;
+.newsletter-dispatch-box {
+  margin-top: var(--space-6);
+  padding: var(--space-5);
+  border-radius: var(--radius-md);
+  background: rgba(255, 250, 242, 0.05);
+  border: 1px solid var(--border-on-dark);
 }
 
-.footer-links-list {
+.newsletter-title {
+  font-size: var(--fs-xs);
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: var(--amber-400);
+}
+.newsletter-sub { margin-top: var(--space-2); font-size: 0.82rem; }
+
+.newsletter-form {
+  display: flex;
+  gap: var(--space-2);
+  margin-top: var(--space-4);
+}
+.newsletter-form input {
+  flex: 1;
+  min-width: 0;
+  padding: 11px var(--space-4);
+  border-radius: var(--radius-xs);
+  border: 1px solid var(--border-on-dark);
+  background: rgba(255, 250, 242, 0.06);
+  color: var(--flour-50);
+  font-size: 0.86rem;
+}
+.newsletter-form input::placeholder { color: var(--text-on-dark-muted); }
+.newsletter-form input:focus {
+  outline: none;
+  border-color: var(--amber-500);
+}
+.newsletter-form button {
+  padding: 0 var(--space-5);
+  border-radius: var(--radius-xs);
+  background: var(--amber-500);
+  color: var(--flour-50);
+  font-weight: 600;
+  font-size: 0.86rem;
+  transition: background var(--transition-fast);
+}
+.newsletter-form button:hover { background: var(--amber-600); }
+
+.footer-links {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: var(--space-3);
 }
-
-.footer-link {
-  color: #b5a8a2;
-  font-size: 0.95rem;
-  transition: var(--transition);
+.footer-links h4 {
+  color: var(--flour-50);
+  font-size: 0.85rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin-bottom: var(--space-2);
 }
-
-.footer-link:hover {
-  color: #ffffff;
-  transform: translateX(4px);
-}
-
-/* Newsletter Dispatch Box */
-.newsletter-dispatch-box {
-  display: flex;
-  gap: 8px;
-}
-
-.newsletter-input {
-  flex-grow: 1;
-  padding: 10px 16px;
-  background-color: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  border-radius: var(--radius-sm);
-  color: #ffffff;
+.footer-links a,
+.footer-link-btn {
   font-size: 0.9rem;
-  outline: none;
+  text-align: left;
+  transition: color var(--transition-fast);
 }
+.footer-links a:hover,
+.footer-link-btn:hover { color: var(--amber-400); }
 
-.newsletter-input:focus {
-  border-color: var(--accent-primary);
+.staff-portal-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: 0.8rem;
+  padding: var(--space-2) var(--space-3);
+  border-radius: var(--radius-xs);
+  border: 1px dashed var(--border-on-dark);
+  color: var(--text-on-dark-muted);
 }
+.staff-portal-btn:hover { border-color: var(--amber-500); color: var(--amber-400); }
 
 .footer-bottom {
-  padding-top: 30px;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
-  text-align: center;
-  color: #b5a8a2;
-  font-size: 0.85rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: var(--space-2);
+  padding-top: var(--space-6);
+  padding-bottom: var(--space-6);
+  border-top: 1px solid var(--border-on-dark);
+  font-size: 0.78rem;
 }
 
-@media (max-width: 968px) {
-  .footer-grid {
-    grid-template-columns: 1fr;
-    gap: 36px;
-  }
+@media (max-width: 860px) {
+  .footer-grid { grid-template-columns: 1fr 1fr; }
+  .footer-brand { grid-column: 1 / -1; }
+}
+
+@media (max-width: 560px) {
+  .footer-grid { grid-template-columns: 1fr; gap: var(--space-8); }
+  .newsletter-form { flex-direction: column; }
+  .footer-bottom { flex-direction: column; text-align: center; }
 }

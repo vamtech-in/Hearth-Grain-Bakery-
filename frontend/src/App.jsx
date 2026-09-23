@@ -18,7 +18,7 @@ import ReservationModal from './components/ReservationModal';
 import AdminPortalModal from './components/AdminPortalModal';
 import ToastContainer from './components/Toast';
 
-import './App.css';
+import './styles/index.css';
 
 export default function App() {
   return (

@@ -1,0 +1,32 @@
+/* =========================================================
+   Hearth & Grain Bakery — Modular stylesheet entry point
+   Import order matters: tokens → base → shared UI → sections
+========================================================= */
+
+/* Design tokens */
+@import './variables.css';
+
+/* Base & resets */
+@import './reset.css';
+@import './layout.css';
+@import './typography.css';
+
+/* Shared design system */
+@import './buttons.css';
+
+/* Page sections, in the order they appear on the page */
+@import './header.css';
+@import './hero.css';
+@import './stats.css';
+@import './schedule.css';
+@import './menu.css';
+@import './story.css';
+@import './reviews.css';
+@import './visit.css';
+@import './footer.css';
+
+/* Overlays: cart, modals, toasts, staff portal */
+@import './cart.css';
+@import './modals.css';
+@import './toast.css';
+@import './admin.css';
