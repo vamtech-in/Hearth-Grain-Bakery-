@@ -67,7 +67,7 @@ export default function CartDrawer() {
               {cartItems.map(item => (
                 <li key={item.id} className="cart-item-card">
                   <img 
-                    src={item.image || '/images/image1.jpg'} 
+                    src={item.image || '/images/wheatleaf.jpg'} 
                     alt={item.name} 
                     className="cart-item-img" 
                   />

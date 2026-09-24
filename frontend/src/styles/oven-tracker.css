@@ -1,0 +1,293 @@
+/* =========================================================
+   Live Stone Oven Batch Tracker Component
+   ========================================================= */
+
+.oven-tracker-section {
+  padding: var(--space-6) 0;
+  position: relative;
+  z-index: 2;
+}
+
+.oven-tracker-wrapper {
+  background: linear-gradient(135deg, #24160f 0%, #170d08 100%);
+  border: 1px solid rgba(224, 138, 46, 0.25);
+  border-radius: var(--radius-xl);
+  padding: var(--space-6);
+  color: var(--flour-50);
+  box-shadow: 0 16px 36px -12px rgba(18, 9, 4, 0.45);
+  position: relative;
+  overflow: hidden;
+}
+
+.oven-tracker-wrapper::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -20%;
+  width: 380px;
+  height: 380px;
+  background: radial-gradient(circle, rgba(224, 138, 46, 0.14) 0%, transparent 70%);
+  pointer-events: none;
+  filter: blur(40px);
+}
+
+.oven-tracker-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  padding-bottom: var(--space-4);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  margin-bottom: var(--space-5);
+}
+
+.oven-status-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  background: rgba(224, 138, 46, 0.15);
+  border: 1px solid rgba(224, 138, 46, 0.35);
+  padding: 6px 14px;
+  border-radius: var(--radius-full);
+}
+
+.live-pulsing-dot {
+  width: 8px;
+  height: 8px;
+  background-color: #f97316;
+  border-radius: 50%;
+  box-shadow: 0 0 10px #f97316;
+  animation: live-pulse 1.8s infinite ease-in-out;
+}
+
+@keyframes live-pulse {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.4); opacity: 0.6; }
+}
+
+.live-status-text {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: #fdba74;
+}
+
+.oven-temperature-tag {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.75);
+  background: rgba(255, 255, 255, 0.06);
+  padding: 4px 12px;
+  border-radius: var(--radius-sm);
+}
+
+.oven-tracker-grid {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: var(--space-6);
+  align-items: center;
+}
+
+.oven-tracker-main {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.oven-badge-row {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.batch-stage-tag {
+  font-size: 0.75rem;
+  font-weight: 600;
+  background: rgba(255, 255, 255, 0.1);
+  color: #fed7aa;
+  padding: 3px 10px;
+  border-radius: var(--radius-full);
+}
+
+.batch-icon {
+  font-size: 1.5rem;
+}
+
+.current-batch-title {
+  font-family: var(--font-heading);
+  font-size: clamp(1.4rem, 2.4vw, 1.85rem);
+  color: #fff;
+  line-height: 1.25;
+  margin: 0;
+}
+
+.current-batch-desc {
+  font-size: 0.92rem;
+  color: rgba(255, 255, 255, 0.75);
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* Progress bar */
+.bake-progress-container {
+  margin: var(--space-2) 0 var(--space-3);
+}
+
+.bake-progress-labels {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.78rem;
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 6px;
+}
+
+.bake-progress-labels strong {
+  color: #fed7aa;
+}
+
+.bake-progress-track {
+  width: 100%;
+  height: 8px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius-full);
+  overflow: hidden;
+}
+
+.bake-progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #ea580c, #f59e0b);
+  border-radius: var(--radius-full);
+  box-shadow: 0 0 12px rgba(245, 158, 11, 0.5);
+  transition: width 0.6s ease;
+}
+
+.oven-actions-row {
+  display: flex;
+  gap: var(--space-3);
+  flex-wrap: wrap;
+  margin-top: var(--space-2);
+}
+
+.reserve-loaf-btn {
+  background: #e08a2e !important;
+  color: #1a0f07 !important;
+  font-weight: 700 !important;
+  box-shadow: 0 4px 16px rgba(224, 138, 46, 0.35) !important;
+}
+
+.reserve-loaf-btn:hover {
+  background: #f19f42 !important;
+  transform: translateY(-2px);
+}
+
+.inspect-btn {
+  background: rgba(255, 255, 255, 0.08) !important;
+  color: #fff !important;
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+}
+
+.inspect-btn:hover {
+  background: rgba(255, 255, 255, 0.15) !important;
+}
+
+/* Sidebar Clock & Switchers */
+.oven-tracker-sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.countdown-display-card {
+  background: rgba(0, 0, 0, 0.35);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: var(--radius-lg);
+  padding: var(--space-4);
+  text-align: center;
+}
+
+.countdown-eyebrow {
+  display: block;
+  font-size: 0.68rem;
+  letter-spacing: 0.15em;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.5);
+  margin-bottom: 4px;
+}
+
+.countdown-digits {
+  font-family: var(--font-heading);
+  font-size: clamp(2.2rem, 3.5vw, 2.8rem);
+  font-weight: 800;
+  color: #ffedd5;
+  letter-spacing: 0.05em;
+  text-shadow: 0 0 20px rgba(249, 115, 22, 0.4);
+}
+
+.countdown-unit {
+  display: block;
+  font-size: 0.65rem;
+  color: rgba(255, 255, 255, 0.4);
+  letter-spacing: 0.1em;
+}
+
+.countdown-flame-note {
+  margin-top: 8px;
+  font-size: 0.76rem;
+  color: #fcd34d;
+}
+
+.batch-switcher-list {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.batch-tab-btn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: var(--radius-md);
+  padding: 8px 12px;
+  color: var(--flour-50);
+  cursor: pointer;
+  text-align: left;
+  transition: all 0.2s ease;
+}
+
+.batch-tab-btn:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.batch-tab-btn.active {
+  background: rgba(224, 138, 46, 0.18);
+  border-color: rgba(224, 138, 46, 0.45);
+}
+
+.batch-tab-icon {
+  font-size: 1.25rem;
+}
+
+.batch-tab-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.batch-tab-name {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #fff;
+}
+
+.batch-tab-deck {
+  font-size: 0.7rem;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+@media (max-width: 860px) {
+  .oven-tracker-grid {
+    grid-template-columns: 1fr;
+  }
+}

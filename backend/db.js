@@ -19,7 +19,7 @@ const INITIAL_DATA = {
       description: '36-hour slow fermentation with wild yeast, open crumb and caramelized crust.',
       tags: ['Wild Yeast', '36h Ferment', 'Vegan'],
       inStock: true,
-      image: '/images/image4.jpg'
+      image: '/images/wheatleaf.jpg'
     },
     {
       id: 'br-2',
@@ -29,7 +29,7 @@ const INITIAL_DATA = {
       description: 'Dense, aromatic rye loaf crusted with toasted flaxseed, sunflower seeds, and caraway.',
       tags: ['Whole Grain', 'Seeded', 'Nutty'],
       inStock: true,
-      image: '/images/image1.jpg'
+      image: '/images/seeded.jpg'
     },
     {
       id: 'br-3',
@@ -39,7 +39,7 @@ const INITIAL_DATA = {
       description: 'Crisp, blistered crust with a light, airy crumb made according to French artisan standards.',
       tags: ['French Heritage', 'Crisp Crust'],
       inStock: true,
-      image: '/images/image4.jpg'
+      image: '/images/Bagutee.jpg'
     },
     {
       id: 'br-4',
@@ -49,7 +49,7 @@ const INITIAL_DATA = {
       description: 'Stone-ground heritage wheat loaf, naturally sweet and rich in fiber.',
       tags: ['Stoneground', 'Healthy', 'Vegan'],
       inStock: true,
-      image: '/images/image1.jpg'
+      image: '/images/wheatleaf.jpg'
     },
     {
       id: 'br-5',
@@ -59,7 +59,7 @@ const INITIAL_DATA = {
       description: 'Generously drizzled with extra virgin olive oil, Kalamata olives, and fresh organic rosemary.',
       tags: ['EVOO', 'Herbed', 'Fluffy'],
       inStock: true,
-      image: '/images/image4.jpg'
+      image: '/images/olive.jpg'
     },
 
     // Pastry
@@ -71,7 +71,7 @@ const INITIAL_DATA = {
       description: 'Honeycomb interior, flaky exterior made with 84% butterfat Normandy butter.',
       tags: ['Normandy Butter', 'Flaky', 'Fresh Daily'],
       inStock: true,
-      image: '/images/image3.jpg'
+      image: '/images/butter.jpg'
     },
     {
       id: 'pa-2',
@@ -81,7 +81,7 @@ const INITIAL_DATA = {
       description: 'Twice-baked butter croissant filled with rich almond frangipane and topped with toasted sliced almonds.',
       tags: ['Frangipane', 'Almond', 'Twice-Baked'],
       inStock: true,
-      image: '/images/image3.jpg'
+      image: '/images/almonds.jpg'
     },
     {
       id: 'pa-3',
@@ -91,7 +91,7 @@ const INITIAL_DATA = {
       description: 'Swirled brioche dough layered with Saigon cinnamon, dark brown sugar, and dark chocolate.',
       tags: ['Cinnamon', 'Dark Chocolate', 'Brioche'],
       inStock: true,
-      image: '/images/image3.jpg'
+      image: '/images/babka.jpg'
     },
     {
       id: 'pa-4',
@@ -101,7 +101,7 @@ const INITIAL_DATA = {
       description: 'Crisp lamination with Tahitian vanilla pastry cream and fresh seasonal fruit compote.',
       tags: ['Vanilla Cream', 'Seasonal Fruit'],
       inStock: true,
-      image: '/images/image3.jpg'
+      image: '/images/almonds.jpg'
     },
     {
       id: 'pa-5',
@@ -111,7 +111,7 @@ const INITIAL_DATA = {
       description: 'Golden, flaky layered pastry stuffed with two batons of 55% Belgian dark chocolate.',
       tags: ['Belgian Chocolate', 'Flaky'],
       inStock: true,
-      image: '/images/image3.jpg'
+      image: '/images/pain.jpg'
     },
 
     // Coffee
@@ -123,7 +123,7 @@ const INITIAL_DATA = {
       description: 'Double shot of single-origin beans roasted medium-dark with notes of cacao and hazelnut.',
       tags: ['Double Shot', 'Single Origin'],
       inStock: true,
-      image: '/images/image5.jpg'
+      image: '/images/espresso.jpg'
     },
     {
       id: 'co-2',
@@ -133,7 +133,7 @@ const INITIAL_DATA = {
       description: 'Rich espresso poured over hot filtered spring water for a silky, lingering finish.',
       tags: ['Smooth', 'Aromatic'],
       inStock: true,
-      image: '/images/image5.jpg'
+      image: '/images/espresso.jpg'
     },
     {
       id: 'co-3',
@@ -143,7 +143,7 @@ const INITIAL_DATA = {
       description: 'Equal parts espresso, steamed milk, and velvety micro-foam dusted with cocoa powder.',
       tags: ['Micro-foam', 'Velvety'],
       inStock: true,
-      image: '/images/image5.jpg'
+      image: '/images/espresso.jpg'
     },
     {
       id: 'co-4',
@@ -153,7 +153,7 @@ const INITIAL_DATA = {
       description: 'Steeped cold for 18 hours for an ultra-smooth, low-acidity refreshing brew.',
       tags: ['18h Steep', 'Refreshing', 'Iced'],
       inStock: true,
-      image: '/images/image5.jpg'
+      image: '/images/cold.jpg'
     },
     {
       id: 'co-5',
@@ -163,7 +163,7 @@ const INITIAL_DATA = {
       description: 'Ristretto shots paired with velvety steamed barista oat milk.',
       tags: ['Plant-Based', 'Silky'],
       inStock: true,
-      image: '/images/image5.jpg'
+      image: '/images/oat.jpg'
     }
   ],
 

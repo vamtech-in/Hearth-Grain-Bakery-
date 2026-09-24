@@ -258,14 +258,14 @@ export default function AdminPortalModal() {
         price: Number(newItem.price),
         description: newItem.description.trim(),
         tags: newItem.tags ? newItem.tags.split(',').map(s => s.trim()).filter(Boolean) : [],
-        image: newItem.image || (newItem.category === 'coffee' ? '/images/image5.jpg' : newItem.category === 'pastry' ? '/images/image3.jpg' : '/images/image4.jpg')
+        image: newItem.image || (newItem.category === 'coffee' ? '/images/espresso.jpg' : newItem.category === 'pastry' ? '/images/butter.jpg' : '/images/wheatleaf.jpg')
       });
 
       if (res.success) {
         showToast(`✨ Added "${res.data.name}" to the artisan menu!`, 'success');
         if (soundEnabled) playArtisanChime('bell');
         setMenuItems(prev => [...prev, res.data]);
-        setNewItem({ name: '', category: 'bread', price: '', description: '', tags: '', image: '/images/image4.jpg' });
+        setNewItem({ name: '', category: 'bread', price: '', description: '', tags: '', image: '/images/wheatleaf.jpg' });
         setShowAddForm(false);
         bakeryApi.getStats().then(s => s.success && setStats(s.data));
       }
@@ -780,10 +780,17 @@ export default function AdminPortalModal() {
                           value={newItem.image} 
                           onChange={e => setNewItem({ ...newItem, image: e.target.value })}
                         >
-                          <option value="/images/image4.jpg">Rustic Loaf (Bread)</option>
-                          <option value="/images/image1.jpg">Seeded Sourdough (Bread)</option>
-                          <option value="/images/image3.jpg">Golden Croissant &amp; Pastry</option>
-                          <option value="/images/image5.jpg">Artisan Coffee &amp; Espresso</option>
+                          <option value="/images/wheatleaf.jpg">Artisan Loaf (Bread)</option>
+                          <option value="/images/seeded.jpg">Seeded Sourdough (Bread)</option>
+                          <option value="/images/Bagutee.jpg">Baguette Tradition (Bread)</option>
+                          <option value="/images/olive.jpg">Olive Focaccia (Bread)</option>
+                          <option value="/images/butter.jpg">Butter Croissant (Pastry)</option>
+                          <option value="/images/almonds.jpg">Almond Croissant (Pastry)</option>
+                          <option value="/images/babka.jpg">Cinnamon Babka (Pastry)</option>
+                          <option value="/images/pain.jpg">Pain au Chocolat (Pastry)</option>
+                          <option value="/images/espresso.jpg">Single-Origin Espresso (Coffee)</option>
+                          <option value="/images/cold.jpg">Cold Brew (Coffee)</option>
+                          <option value="/images/oat.jpg">Oat Milk Flat White (Coffee)</option>
                         </select>
                       </div>
                       <div className="form-actions-row">
@@ -848,7 +855,7 @@ export default function AdminPortalModal() {
                     {filteredMenuItems.map(item => (
                       <div key={item.id} className={`admin-menu-row ${!item.inStock ? 'sold-out-row' : ''}`}>
                         <div className="item-thumbnail-preview">
-                          <img src={item.image} alt={item.name} onError={(e) => { e.target.src = '/images/image4.jpg'; }} />
+                          <img src={item.image} alt={item.name} onError={(e) => { e.target.src = '/images/wheatleaf.jpg'; }} />
                         </div>
                         
                         <div className="item-info">

@@ -3,6 +3,7 @@ import { CartProvider } from './context/CartContext';
 import Header from './components/Header';
 import Hero from './components/Hero';
 import Stats from './components/Stats';
+import OvenLiveTracker from './components/OvenLiveTracker';
 import Schedule from './components/Schedule';
 import Menu from './components/Menu';
 import Story from './components/Story';
@@ -16,6 +17,7 @@ import CheckoutModal from './components/CheckoutModal';
 import OrderTrackerModal from './components/OrderTrackerModal';
 import ReservationModal from './components/ReservationModal';
 import AdminPortalModal from './components/AdminPortalModal';
+import ItemDetailModal from './components/ItemDetailModal';
 import ToastContainer from './components/Toast';
 
 import './styles/index.css';
@@ -28,6 +30,7 @@ export default function App() {
         <main>
           <Hero />
           <Stats />
+          <OvenLiveTracker />
           <Schedule />
           <Menu />
           <Story />
@@ -42,6 +45,7 @@ export default function App() {
         <OrderTrackerModal />
         <ReservationModal />
         <AdminPortalModal />
+        <ItemDetailModal />
         <ToastContainer />
       </div>
     </CartProvider>

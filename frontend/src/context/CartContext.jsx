@@ -27,6 +27,7 @@ export function CartProvider({ children }) {
     }
     return false;
   });
+  const [selectedItemDetail, setSelectedItemDetail] = useState(null);
   const [toasts, setToasts] = useState([]);
 
   // Listen to URL hash/pathname changes (e.g. #admin or /admin)
@@ -131,6 +132,14 @@ export function CartProvider({ children }) {
     setIsTrackerOpen(true);
   };
 
+  const openItemDetail = (item) => {
+    setSelectedItemDetail(item);
+  };
+
+  const closeItemDetail = () => {
+    setSelectedItemDetail(null);
+  };
+
   return (
     <CartContext.Provider value={{
       cartItems,
@@ -153,6 +162,10 @@ export function CartProvider({ children }) {
       setIsReservationOpen,
       isAdminOpen,
       setIsAdminOpen,
+      selectedItemDetail,
+      setSelectedItemDetail,
+      openItemDetail,
+      closeItemDetail,
       toasts,
       showToast,
       removeToast

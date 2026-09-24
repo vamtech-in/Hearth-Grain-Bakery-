@@ -5,7 +5,7 @@ import { useCart } from '../context/CartContext';
 // Shown whenever the live bakery API is unreachable or returns nothing,
 // so the menu section is never blank for the visitor.
 const FALLBACK_MENU = [
-  { id: 'fb-br-1', name: 'Country Sourdough', category: 'bread', price: 220, description: '24-hour wild-yeast fermented, crackling crust.', tags: ['Bestseller'], inStock: true, image: '/images/image4.jpg' },
+  { id: 'fb-br-1', name: 'Country Sourdough', category: 'bread', price: 220, description: '24-hour wild-yeast fermented, crackling crust.', tags: ['Bestseller'], inStock: true, image: '/images/wheatleaf.jpg' },
   { id: 'fb-br-2', name: 'Seeded Rye', category: 'bread', price: 200, description: 'Flax, sunflower and caraway seed crust.', tags: [], inStock: true, image: '/images/seeded.jpg' },
   { id: 'fb-br-3', name: 'Baguette Tradition', category: 'bread', price: 140, description: 'Crisp Parisian-style baguette, baked twice daily.', tags: [], inStock: true, image: '/images/Bagutee.jpg' },
   { id: 'fb-br-4', name: 'Whole Wheat Loaf', category: 'bread', price: 190, description: 'Stoneground whole wheat, tender crumb.', tags: [], inStock: true, image: '/images/wheatleaf.jpg' },
@@ -17,7 +17,7 @@ const FALLBACK_MENU = [
   { id: 'fb-co-1', name: 'Single-Origin Espresso', category: 'coffee', price: 90, description: 'Rotating single-origin, brewed to order.', tags: [], inStock: true, image: '/images/espresso.jpg' },
   { id: 'fb-co-2', name: 'Oat Milk Flat White', category: 'coffee', price: 130, description: 'Silky micro-foam, house-made oat milk.', tags: ['Popular'], inStock: true, image: '/images/oat.jpg' },
   { id: 'fb-co-3', name: 'Cold Brew', category: 'coffee', price: 140, description: '18-hour steeped, smooth and low-acid.', tags: [], inStock: true, image: '/images/cold.jpg' },
-  { id: 'fb-co-4', name: 'Cappuccino', category: 'coffee', price: 120, description: 'Rich espresso with velvety steamed milk and foam.', tags: [], inStock: true, image: '/images/cappucino.jpg' }
+  { id: 'fb-co-4', name: 'Cappuccino', category: 'coffee', price: 120, description: 'Rich espresso with velvety steamed milk and foam.', tags: [], inStock: true, image: '/images/espresso.jpg' }
 ];
 
 export default function Menu() {
@@ -25,7 +25,7 @@ export default function Menu() {
   const [activeCategory, setActiveCategory] = useState('all');
   const [searchQuery, setSearchQuery] = useState('');
   const [loading, setLoading] = useState(true);
-  const { addToCart, setIsCartOpen, setIsReservationOpen } = useCart();
+  const { addToCart, setIsCartOpen, setIsReservationOpen, openItemDetail } = useCart();
 
   const fetchMenuItems = async () => {
     try {
@@ -72,9 +72,9 @@ export default function Menu() {
     coffee: { num: '03', title: 'Specialty Coffee', desc: 'Single-origin beans thoughtfully brewed and balanced' }
   };
   const categoryFallbackImage = {
-    bread: '/images/image4.jpg',
-    pastry: '/images/image3.jpg',
-    coffee: '/images/image5.jpg'
+    bread: '/images/wheatleaf.jpg',
+    pastry: '/images/butter.jpg',
+    coffee: '/images/espresso.jpg'
   };
 
   // Categories to render as sections: either every category (in a fixed
@@ -84,24 +84,40 @@ export default function Menu() {
 
   const renderItemCard = (item) => (
     <article key={item.id} className={`menu-item-card ${!item.inStock ? 'sold-out' : ''}`}>
-      <div className="menu-item-image-wrap">
+      <div 
+        className="menu-item-image-wrap" 
+        onClick={() => openItemDetail(item)}
+        title="Click to view bake details, ingredients & pairings"
+        style={{ cursor: 'pointer' }}
+      >
         <img
-          src={item.image || categoryFallbackImage[item.category] || '/images/image4.jpg'}
+          src={item.image || categoryFallbackImage[item.category] || '/images/wheatleaf.jpg'}
           alt={item.name}
           className="menu-item-image"
           loading="lazy"
         />
         {!item.inStock && <span className="sold-out-flag">Sold Out</span>}
+        <span className="item-quick-peek-badge">🔍 Quick View</span>
       </div>
 
       <div className="menu-item-body">
-        <div className="menu-item-top">
+        <div 
+          className="menu-item-top"
+          onClick={() => openItemDetail(item)}
+          style={{ cursor: 'pointer' }}
+        >
           <h4>{item.name}</h4>
           <span className="item-price">₹{item.price}</span>
         </div>
 
         {item.description && (
-          <p className="menu-item-desc">{item.description}</p>
+          <p 
+            className="menu-item-desc"
+            onClick={() => openItemDetail(item)}
+            style={{ cursor: 'pointer' }}
+          >
+            {item.description}
+          </p>
         )}
 
         <div className="menu-item-footer">
@@ -111,19 +127,30 @@ export default function Menu() {
             ))}
           </div>
 
-          {item.inStock ? (
+          <div className="menu-item-btn-group" style={{ display: 'flex', gap: '6px' }}>
             <button
               type="button"
-              className="button button-primary button-small"
-              onClick={() => addToCart(item)}
+              className="button button-secondary button-small"
+              onClick={() => openItemDetail(item)}
+              title="View Specs & Ingredients"
+              style={{ padding: '6px 10px', fontSize: '0.75rem' }}
             >
-              + Add
+              Specs
             </button>
-          ) : (
-            <button type="button" className="button button-secondary button-small" disabled>
-              Unavailable
-            </button>
-          )}
+            {item.inStock ? (
+              <button
+                type="button"
+                className="button button-primary button-small"
+                onClick={() => addToCart(item)}
+              >
+                + Add
+              </button>
+            ) : (
+              <button type="button" className="button button-secondary button-small" disabled>
+                Unavailable
+              </button>
+            )}
+          </div>
         </div>
       </div>
     </article>

@@ -48,7 +48,7 @@ export default function Schedule() {
       name: `${activeSpecial.bake} (${activeSpecial.name} Special)`,
       price: 210,
       category: 'bread',
-      image: '/images/image4.jpg'
+      image: '/images/wheatleaf.jpg'
     });
     setIsCartOpen(true);
   };
