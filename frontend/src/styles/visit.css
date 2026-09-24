@@ -2,7 +2,9 @@
    Visit Us section
 ========================================================= */
 
-.visit-section { background: var(--surface); }
+.visit-section {
+  background: var(--surface);
+}
 
 .visit-grid {
   display: grid;
@@ -44,15 +46,26 @@
   font-size: 1.1rem;
 }
 
-.visit-detail strong { display: block; margin-bottom: 2px; }
-.visit-detail p { color: var(--text-muted); font-size: 0.92rem; line-height: 1.55; }
+.visit-detail strong {
+  display: block;
+  margin-bottom: 2px;
+}
+
+.visit-detail p {
+  color: var(--text-muted);
+  font-size: 0.92rem;
+  line-height: 1.55;
+}
 
 .phone-link {
   color: var(--accent-contrast);
   font-weight: 600;
   border-bottom: 1px solid transparent;
 }
-.phone-link:hover { border-color: currentColor; }
+
+.phone-link:hover {
+  border-color: currentColor;
+}
 
 .visit-actions-group {
   display: flex;
@@ -61,17 +74,96 @@
   margin-top: var(--space-8);
 }
 
-/* ---- Quick inquiry form ---- */
-.quick-inquiry-box {
-  margin-top: var(--space-10);
-  padding: var(--space-6);
-  background: var(--surface-sunken);
-  border-radius: var(--radius-lg);
-  border: 1px solid var(--border);
-}
-.quick-inquiry-box h4 { margin-bottom: var(--space-4); }
 
-.inquiry-form { display: flex; flex-direction: column; gap: var(--space-3); }
+/* =========================================================
+   Quick inquiry form
+========================================================= */
+
+.quick-inquiry-box {
+  width: 100%;
+  box-sizing: border-box;
+
+  margin-top: clamp(40px, 5vw, 72px);
+  padding: clamp(24px, 3vw, 40px);
+
+  background: var(--surface-sunken);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+
+  overflow: hidden;
+}
+
+.quick-inquiry-box .inquiry-heading,
+.quick-inquiry-box .inquiry-description,
+.quick-inquiry-box .inquiry-form {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.quick-inquiry-box .inquiry-form input,
+.quick-inquiry-box .inquiry-form textarea {
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+.inquiry-heading {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--space-4);
+}
+
+.inquiry-eyebrow {
+  display: block;
+  margin-bottom: 5px;
+
+  color: var(--accent-strong);
+
+  font-size: 0.62rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+}
+
+.inquiry-heading h3 {
+  margin: 0;
+
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 500;
+}
+
+.inquiry-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 36px;
+  height: 36px;
+
+  flex-shrink: 0;
+
+  border-radius: 50%;
+  background: var(--surface-raised);
+  color: var(--accent-strong);
+}
+
+.inquiry-description {
+  max-width: 65ch;
+  margin-top: var(--space-3);
+
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  line-height: 1.6;
+}
+
+.inquiry-form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+
+  margin-top: var(--space-5);
+}
 
 .inquiry-fields {
   display: grid;
@@ -79,35 +171,150 @@
   gap: var(--space-3);
 }
 
+.inquiry-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.inquiry-field label {
+  color: var(--text);
+  font-size: 0.72rem;
+  font-weight: 650;
+}
+
 .inquiry-form input,
 .inquiry-form textarea {
   width: 100%;
   padding: 12px var(--space-4);
+
   border-radius: var(--radius-xs);
   border: 1px solid var(--border-strong);
+
   background: var(--surface-raised);
+  color: var(--text);
+
+  font-family: inherit;
   font-size: 0.9rem;
+
+  box-sizing: border-box;
 }
+
 .inquiry-form input:focus,
 .inquiry-form textarea:focus {
   outline: none;
   border-color: var(--accent);
-  box-shadow: 0 0 0 4px rgba(217, 119, 54, 0.14);
+
+  box-shadow:
+    0 0 0 4px rgba(217, 119, 54, 0.14);
 }
-.inquiry-form textarea { resize: vertical; min-height: 64px; }
 
-.inquiry-submit-btn { align-self: flex-start; }
+.inquiry-form textarea {
+  resize: vertical;
+  min-height: 90px;
+  line-height: 1.5;
+}
 
-/* ---- Visit info card ---- */
+.inquiry-submit-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: var(--space-4);
+  margin-top: 4px;
+}
+
+.inquiry-submit-row > span {
+  color: var(--text-muted);
+  font-size: 0.7rem;
+  line-height: 1.4;
+}
+
+
+/* =========================================================
+   Tablet
+========================================================= */
+
+@media (max-width: 968px) {
+  .quick-inquiry-box {
+    margin-top: 48px;
+    padding: 28px;
+  }
+}
+
+
+/* =========================================================
+   Mobile
+========================================================= */
+
+@media (max-width: 560px) {
+  .inquiry-fields {
+    grid-template-columns: 1fr;
+  }
+
+  .inquiry-submit-row {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .inquiry-submit-row .button {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .quick-inquiry-box {
+    padding: 20px;
+  }
+
+  .inquiry-heading h3 {
+    font-size: 1.3rem;
+  }
+}
+/* =========================================================
+   Visit info card
+========================================================= */
+
 .visit-card {
-  background: var(--coffee-900);
+  position: relative;
+  overflow: hidden;
+
+  background: var(--gradient-dark);
   color: var(--text-on-dark);
+
   border-radius: var(--radius-lg);
   padding: var(--space-8);
+
   display: flex;
   flex-direction: column;
   gap: var(--space-6);
-  box-shadow: var(--shadow-lg);
+
+  box-shadow: var(--shadow-xl);
+
+  box-sizing: border-box;
+}
+
+.visit-card::after {
+  content: "";
+
+  position: absolute;
+  top: -40%;
+  right: -20%;
+
+  width: 300px;
+  height: 300px;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(217, 119, 54, 0.2),
+      transparent 70%
+    );
+
+  pointer-events: none;
+}
+
+.visit-card > * {
+  position: relative;
 }
 
 .visit-card-top {
@@ -129,32 +336,63 @@
   display: inline-flex;
   align-items: center;
   gap: var(--space-2);
+
   padding: 6px 12px;
+
   border-radius: var(--radius-full);
+
   font-size: 0.75rem;
   font-weight: 600;
 }
-.visit-status.open { background: rgba(47, 125, 79, 0.22); color: #8fe0af; }
-.visit-status.closed { background: rgba(179, 38, 30, 0.22); color: #f0a49d; }
+
+.visit-status.open {
+  background: rgba(47, 125, 79, 0.22);
+  color: #8fe0af;
+}
+
+.visit-status.closed {
+  background: rgba(179, 38, 30, 0.22);
+  color: #f0a49d;
+}
 
 .status-indicator-dot {
   width: 7px;
   height: 7px;
+
   border-radius: 50%;
+
   background: currentColor;
 }
-.visit-status.open .status-indicator-dot { animation: pulse-dot 1.8s ease-in-out infinite; }
+
+.visit-status.open .status-indicator-dot {
+  animation: pulse-dot 1.8s ease-in-out infinite;
+}
+
 @keyframes pulse-dot {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.35; }
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.35;
+  }
 }
 
 .visit-card-symbol {
   color: var(--amber-400);
   font-size: 1.4rem;
 }
-.visit-card-main h3 { margin-top: var(--space-3); color: var(--flour-50); }
-.visit-card-main p { margin-top: var(--space-3); color: var(--text-on-dark-muted); }
+
+.visit-card-main h3 {
+  margin-top: var(--space-3);
+  color: var(--flour-50);
+}
+
+.visit-card-main p {
+  margin-top: var(--space-3);
+  color: var(--text-on-dark-muted);
+}
 
 .visit-card-features {
   display: flex;
@@ -165,27 +403,68 @@
 
 .feature-pill {
   padding: 6px 14px;
+
   border-radius: var(--radius-full);
+
   background: rgba(255, 250, 242, 0.08);
+
   border: 1px solid var(--border-on-dark);
+
   font-size: 0.76rem;
 }
 
 .visit-card-bottom {
   display: flex;
   justify-content: space-between;
+
   padding-top: var(--space-5);
+
   border-top: 1px solid var(--border-on-dark);
+
   font-size: 0.78rem;
   color: var(--text-on-dark-muted);
 }
 
+
+/* =========================================================
+   Tablet
+========================================================= */
+
 @media (max-width: 968px) {
-  .visit-grid { grid-template-columns: 1fr; }
+  .visit-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /*
+   * Return inquiry box to normal container width
+   * when the layout becomes single-column.
+   */
+  .quick-inquiry-box {
+    width: 100%;
+  }
 }
 
+
+/* =========================================================
+   Mobile
+========================================================= */
+
 @media (max-width: 560px) {
-  .inquiry-fields { grid-template-columns: 1fr; }
-  .visit-actions-group { flex-direction: column; align-items: stretch; }
-  .visit-actions-group .button { width: 100%; }
+  .inquiry-fields {
+    grid-template-columns: 1fr;
+  }
+
+  .visit-actions-group {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .visit-actions-group .button {
+    width: 100%;
+  }
+
+  .quick-inquiry-box {
+    width: 100%;
+    padding: var(--space-5);
+  }
 }

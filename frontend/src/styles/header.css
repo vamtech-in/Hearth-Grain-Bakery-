@@ -9,10 +9,17 @@
   height: var(--nav-height);
   display: flex;
   align-items: center;
-  background: rgba(255, 250, 242, 0.86);
+  background: rgba(255, 250, 242, 0.78);
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
-  border-bottom: 1px solid var(--border);
+  border-bottom: 1px solid transparent;
+  transition: background var(--transition), box-shadow var(--transition), border-color var(--transition);
+}
+
+.site-header.is-scrolled {
+  background: rgba(255, 250, 242, 0.92);
+  border-bottom-color: var(--border);
+  box-shadow: var(--shadow-sm);
 }
 
 .nav-container {
@@ -36,6 +43,11 @@
   height: 42px;
   object-fit: contain;
   border-radius: var(--radius-xs);
+  box-shadow: 0 0 0 1px var(--border);
+  transition: box-shadow var(--transition-fast);
+}
+.brand:hover .brand-logo {
+  box-shadow: 0 0 0 1px var(--accent);
 }
 
 .brand-text {
@@ -189,7 +201,7 @@
     gap: 0;
     background: var(--flour-50);
     border-bottom: 1px solid var(--border);
-    box-shadow: var(--shadow-md);
+    box-shadow: var(--shadow-lg);
     max-height: 0;
     overflow: hidden;
     transition: max-height var(--transition-slow);
@@ -203,13 +215,26 @@
     border-top: 1px solid var(--border);
     border-radius: 0;
     text-align: left;
+    opacity: 0;
   }
+  .nav-links.open a,
+  .nav-links.open .nav-link-btn {
+    animation: fadeInUp 0.4s var(--ease-premium) both;
+  }
+  .nav-links.open a:nth-child(1) { animation-delay: 0.04s; }
+  .nav-links.open a:nth-child(2) { animation-delay: 0.08s; }
+  .nav-links.open a:nth-child(3) { animation-delay: 0.12s; }
+  .nav-links.open a:nth-child(4) { animation-delay: 0.16s; }
+  .nav-links.open a:nth-child(5) { animation-delay: 0.2s; }
+  .nav-links.open .nav-link-btn { animation-delay: 0.24s; }
   .nav-links a::after { display: none; }
 
   .nav-button {
     margin: var(--space-3) var(--container-pad) var(--space-4);
     width: calc(100% - 2 * var(--container-pad));
+    opacity: 0;
   }
+  .nav-links.open .nav-button { animation: fadeInUp 0.4s var(--ease-premium) 0.28s both; }
 
   .basket-text { display: none; }
 }

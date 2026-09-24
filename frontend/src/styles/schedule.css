@@ -64,8 +64,9 @@
 }
 
 .schedule-day.today {
-  background: var(--coffee-900);
+  background: var(--gradient-dark);
   border-color: var(--coffee-900);
+  box-shadow: var(--shadow-glow);
 }
 .schedule-day.today .day-name,
 .schedule-day.today strong,

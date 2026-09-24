@@ -3,8 +3,16 @@
 ========================================================= */
 
 .site-footer {
+  position: relative;
   background: var(--coffee-950);
   color: var(--text-on-dark-muted);
+}
+.site-footer::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: var(--gradient-warm);
 }
 
 .footer-grid {

@@ -6,17 +6,18 @@ import { useCart } from '../context/CartContext';
 // so the menu section is never blank for the visitor.
 const FALLBACK_MENU = [
   { id: 'fb-br-1', name: 'Country Sourdough', category: 'bread', price: 220, description: '24-hour wild-yeast fermented, crackling crust.', tags: ['Bestseller'], inStock: true, image: '/images/image4.jpg' },
-  { id: 'fb-br-2', name: 'Seeded Rye', category: 'bread', price: 200, description: 'Flax, sunflower and caraway seed crust.', tags: [], inStock: true, image: '/images/image4.jpg' },
-  { id: 'fb-br-3', name: 'Baguette Tradition', category: 'bread', price: 140, description: 'Crisp Parisian-style baguette, baked twice daily.', tags: [], inStock: true, image: '/images/image4.jpg' },
-  { id: 'fb-br-4', name: 'Whole Wheat Loaf', category: 'bread', price: 190, description: 'Stoneground whole wheat, tender crumb.', tags: [], inStock: true, image: '/images/image4.jpg' },
-  { id: 'fb-br-5', name: 'Olive & Rosemary Focaccia', category: 'bread', price: 210, description: 'Kalamata olives, virgin olive oil, sea salt.', tags: [], inStock: true, image: '/images/image4.jpg' },
-  { id: 'fb-pa-1', name: 'Butter Croissant', category: 'pastry', price: 110, description: '72-hour laminated, all butter.', tags: ['Bestseller'], inStock: true, image: '/images/image3.jpg' },
-  { id: 'fb-pa-2', name: 'Almond Croissant', category: 'pastry', price: 150, description: 'Frangipane-filled, toasted almond flakes.', tags: [], inStock: true, image: '/images/image3.jpg' },
-  { id: 'fb-pa-3', name: 'Cinnamon Babka', category: 'pastry', price: 180, description: 'Swirled with cinnamon sugar, brushed with syrup.', tags: [], inStock: true, image: '/images/image3.jpg' },
-  { id: 'fb-pa-4', name: 'Pain au Chocolat', category: 'pastry', price: 130, description: 'Dark chocolate batons, flaky layers.', tags: [], inStock: true, image: '/images/image3.jpg' },
-  { id: 'fb-co-1', name: 'Single-Origin Espresso', category: 'coffee', price: 90, description: 'Rotating single-origin, brewed to order.', tags: [], inStock: true, image: '/images/image5.jpg' },
-  { id: 'fb-co-2', name: 'Oat Milk Flat White', category: 'coffee', price: 130, description: 'Silky micro-foam, house-made oat milk.', tags: ['Popular'], inStock: true, image: '/images/image5.jpg' },
-  { id: 'fb-co-3', name: 'Cold Brew', category: 'coffee', price: 140, description: '18-hour steeped, smooth and low-acid.', tags: [], inStock: true, image: '/images/image5.jpg' }
+  { id: 'fb-br-2', name: 'Seeded Rye', category: 'bread', price: 200, description: 'Flax, sunflower and caraway seed crust.', tags: [], inStock: true, image: '/images/seeded.jpg' },
+  { id: 'fb-br-3', name: 'Baguette Tradition', category: 'bread', price: 140, description: 'Crisp Parisian-style baguette, baked twice daily.', tags: [], inStock: true, image: '/images/Bagutee.jpg' },
+  { id: 'fb-br-4', name: 'Whole Wheat Loaf', category: 'bread', price: 190, description: 'Stoneground whole wheat, tender crumb.', tags: [], inStock: true, image: '/images/wheatleaf.jpg' },
+  { id: 'fb-br-5', name: 'Olive & Rosemary Focaccia', category: 'bread', price: 210, description: 'Kalamata olives, virgin olive oil, sea salt.', tags: [], inStock: true, image: '/images/olive.jpg' },
+  { id: 'fb-pa-1', name: 'Butter Croissant', category: 'pastry', price: 110, description: '72-hour laminated, all butter.', tags: ['Bestseller'], inStock: true, image: '/images/butter.jpg' },
+  { id: 'fb-pa-2', name: 'Almond Croissant', category: 'pastry', price: 150, description: 'Frangipane-filled, toasted almond flakes.', tags: [], inStock: true, image: '/images/almonds.jpg' },
+  { id: 'fb-pa-3', name: 'Cinnamon Babka', category: 'pastry', price: 180, description: 'Swirled with cinnamon sugar, brushed with syrup.', tags: [], inStock: true, image: '/images/babka.jpg' },
+  { id: 'fb-pa-4', name: 'Pain au Chocolat', category: 'pastry', price: 130, description: 'Dark chocolate batons, flaky layers.', tags: [], inStock: true, image: '/images/pain.jpg' },
+  { id: 'fb-co-1', name: 'Single-Origin Espresso', category: 'coffee', price: 90, description: 'Rotating single-origin, brewed to order.', tags: [], inStock: true, image: '/images/espresso.jpg' },
+  { id: 'fb-co-2', name: 'Oat Milk Flat White', category: 'coffee', price: 130, description: 'Silky micro-foam, house-made oat milk.', tags: ['Popular'], inStock: true, image: '/images/oat.jpg' },
+  { id: 'fb-co-3', name: 'Cold Brew', category: 'coffee', price: 140, description: '18-hour steeped, smooth and low-acid.', tags: [], inStock: true, image: '/images/cold.jpg' },
+  { id: 'fb-co-4', name: 'Cappuccino', category: 'coffee', price: 120, description: 'Rich espresso with velvety steamed milk and foam.', tags: [], inStock: true, image: '/images/cappucino.jpg' }
 ];
 
 export default function Menu() {
@@ -66,10 +67,67 @@ export default function Menu() {
 
   const groupedCategories = ['bread', 'pastry', 'coffee'];
   const categoryHeaders = {
-    bread: { num: '01', title: 'Artisan Bread', desc: 'Slow-fermented with wild yeast and naturally leavened', img: '/images/image4.jpg' },
-    pastry: { num: '02', title: 'French Pastry', desc: 'Buttery, 84-layered lamination baked fresh every sunrise', img: '/images/image3.jpg' },
-    coffee: { num: '03', title: 'Specialty Coffee', desc: 'Single-origin beans thoughtfully brewed and balanced', img: '/images/image5.jpg' }
+    bread: { num: '01', title: 'Artisan Bread', desc: 'Slow-fermented with wild yeast and naturally leavened' },
+    pastry: { num: '02', title: 'French Pastry', desc: 'Buttery, 84-layered lamination baked fresh every sunrise' },
+    coffee: { num: '03', title: 'Specialty Coffee', desc: 'Single-origin beans thoughtfully brewed and balanced' }
   };
+  const categoryFallbackImage = {
+    bread: '/images/image4.jpg',
+    pastry: '/images/image3.jpg',
+    coffee: '/images/image5.jpg'
+  };
+
+  // Categories to render as sections: either every category (in a fixed
+  // order) or just the one the visitor picked — always drawn from the
+  // same search-filtered list, so there's a single rendering path.
+  const categoriesToRender = activeCategory === 'all' ? groupedCategories : [activeCategory];
+
+  const renderItemCard = (item) => (
+    <article key={item.id} className={`menu-item-card ${!item.inStock ? 'sold-out' : ''}`}>
+      <div className="menu-item-image-wrap">
+        <img
+          src={item.image || categoryFallbackImage[item.category] || '/images/image4.jpg'}
+          alt={item.name}
+          className="menu-item-image"
+          loading="lazy"
+        />
+        {!item.inStock && <span className="sold-out-flag">Sold Out</span>}
+      </div>
+
+      <div className="menu-item-body">
+        <div className="menu-item-top">
+          <h4>{item.name}</h4>
+          <span className="item-price">₹{item.price}</span>
+        </div>
+
+        {item.description && (
+          <p className="menu-item-desc">{item.description}</p>
+        )}
+
+        <div className="menu-item-footer">
+          <div className="menu-item-tags">
+            {item.tags && item.tags.slice(0, 2).map((t, idx) => (
+              <span key={idx} className="item-tag-pill">{t}</span>
+            ))}
+          </div>
+
+          {item.inStock ? (
+            <button
+              type="button"
+              className="button button-primary button-small"
+              onClick={() => addToCart(item)}
+            >
+              + Add
+            </button>
+          ) : (
+            <button type="button" className="button button-secondary button-small" disabled>
+              Unavailable
+            </button>
+          )}
+        </div>
+      </div>
+    </article>
+  );
 
   return (
     <section id="menu" className="menu-section">
@@ -125,7 +183,7 @@ export default function Menu() {
           </div>
         </div>
 
-        {/* States: Loading, Empty, Categorized or Filtered Grid */}
+        {/* States: Loading, Empty, or Category Sections of Equal Item Cards */}
         {loading ? (
           <div className="menu-loading-state">
             <div className="baking-spinner">🥖</div>
@@ -141,104 +199,29 @@ export default function Menu() {
               Reset Filters
             </button>
           </div>
-        ) : activeCategory === 'all' && !searchQuery ? (
-          <div className="menu-grid">
-            {groupedCategories.map(catKey => {
+        ) : (
+          <div className="menu-sections">
+            {categoriesToRender.map(catKey => {
               const catInfo = categoryHeaders[catKey];
-              const catItems = items.filter(i => i.category === catKey);
+              const catItems = filteredItems.filter(i => i.category === catKey);
               if (catItems.length === 0) return null;
 
               return (
-                <article key={catKey} className="menu-category">
-                  <div className="menu-category-header">
+                <div key={catKey} className="menu-category-block">
+                  <div className="menu-category-heading">
                     <span className="menu-number">{catInfo.num}</span>
                     <div>
                       <h3>{catInfo.title}</h3>
                       <p>{catInfo.desc}</p>
                     </div>
                   </div>
-                  
-                  <div className="menu-category-image-wrap">
-                    <img 
-                      src={catInfo.img} 
-                      alt={catInfo.title} 
-                      className="menu-feature-image" 
-                    />
+
+                  <div className="menu-items-grid">
+                    {catItems.map(renderItemCard)}
                   </div>
-                  
-                  <ul className="dotted-menu-list">
-                    {catItems.map(item => (
-                      <li key={item.id} className={`dotted-item ${!item.inStock ? 'sold-out' : ''}`}>
-                        <div style={{ width: '100%' }}>
-                          <div style={{ display: 'flex', alignItems: 'baseline', width: '100%' }}>
-                            <span className="item-name">{item.name}</span>
-                            <span className="dotted-line" aria-hidden="true"></span>
-                            <span className="item-price">₹{item.price}</span>
-                          </div>
-
-                          {item.description && (
-                            <p style={{ fontSize: '12px', color: 'var(--text-light)', marginTop: '4px' }}>
-                              {item.description}
-                            </p>
-                          )}
-
-                          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginTop: '8px' }}>
-                            {item.tags && item.tags.length > 0 ? (
-                              <div style={{ display: 'flex', gap: '6px' }}>
-                                {item.tags.map((t, idx) => (
-                                  <span key={idx} className="item-tag-pill">{t}</span>
-                                ))}
-                              </div>
-                            ) : <span />}
-
-                            {item.inStock ? (
-                              <button
-                                type="button"
-                                className="button button-secondary"
-                                style={{ padding: '6px 12px', minHeight: '32px', fontSize: '10px' }}
-                                onClick={() => addToCart(item)}
-                              >
-                                + Add
-                              </button>
-                            ) : (
-                              <span style={{ fontSize: '10px', fontWeight: '700', color: 'var(--compote-red)' }}>Sold Out</span>
-                            )}
-                          </div>
-                        </div>
-                      </li>
-                    ))}
-                  </ul>
-                </article>
+                </div>
               );
             })}
-          </div>
-        ) : (
-          <div className="menu-grid">
-            {filteredItems.map(item => (
-              <div key={item.id} className="menu-category" style={{ display: 'flex', flexDirection: 'column' }}>
-                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
-                  <h3 style={{ fontSize: '22px' }}>{item.name}</h3>
-                  <span className="item-price" style={{ fontSize: '16px' }}>₹{item.price}</span>
-                </div>
-                <p style={{ marginTop: '10px', fontSize: '13px' }}>{item.description}</p>
-                <div style={{ marginTop: 'auto', paddingTop: '20px' }}>
-                  {item.inStock ? (
-                    <button
-                      type="button"
-                      className="button button-primary"
-                      style={{ width: '100%', minHeight: '40px' }}
-                      onClick={() => addToCart(item)}
-                    >
-                      + Add to Basket
-                    </button>
-                  ) : (
-                    <button type="button" className="button button-secondary" style={{ width: '100%', minHeight: '40px' }} disabled>
-                      Sold Out Today
-                    </button>
-                  )}
-                </div>
-              </div>
-            ))}
           </div>
         )}
 

@@ -26,14 +26,29 @@
 }
 
 .button-primary {
-  background: linear-gradient(135deg, var(--amber-400), var(--accent-strong));
+  position: relative;
+  overflow: hidden;
+  background: var(--gradient-warm);
   color: var(--flour-50);
   box-shadow: var(--shadow-sm);
 }
+.button-primary::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 40%;
+  height: 100%;
+  background: linear-gradient(120deg, transparent, rgba(255,255,255,0.35), transparent);
+  transform: translateX(-120%) skewX(-12deg);
+  pointer-events: none;
+}
+.button-primary:hover::before {
+  animation: shimmerSweep 0.9s var(--ease) both;
+}
 .button-primary:hover {
-  background: linear-gradient(135deg, var(--amber-500), var(--amber-700));
   transform: translateY(-1px);
-  box-shadow: var(--shadow-md);
+  box-shadow: var(--shadow-glow);
 }
 .button-primary:active { transform: translateY(0); }
 
@@ -46,15 +61,17 @@
   background: var(--coffee-800);
   color: var(--flour-50);
   border-color: var(--coffee-800);
+  transform: translateY(-1px);
 }
 
 .button-outline {
   background: transparent;
-  color: var(--text-on-dark, var(--coffee-800));
+  color: inherit;
   border-color: currentColor;
 }
 .button-outline:hover {
   background: rgba(0, 0, 0, 0.06);
+  background: color-mix(in srgb, currentColor 12%, transparent);
 }
 
 .button-danger {

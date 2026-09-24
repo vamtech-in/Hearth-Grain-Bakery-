@@ -1,8 +1,10 @@
 /* =========================================================
-   Menu section
+   Menu section — equal item cards, each with its own image
 ========================================================= */
 
-.menu-section { background: var(--surface); }
+.menu-section {
+  background: var(--surface);
+}
 
 /* ---- Controls bar: category tabs + search ---- */
 .menu-controls-bar {
@@ -32,7 +34,12 @@
   color: var(--text-muted);
   transition: all var(--transition-fast);
 }
-.category-tab-btn:hover { border-color: var(--accent); color: var(--coffee-900); }
+
+.category-tab-btn:hover {
+  border-color: var(--accent);
+  color: var(--coffee-900);
+}
+
 .category-tab-btn.active {
   background: var(--coffee-900);
   border-color: var(--coffee-900);
@@ -64,6 +71,7 @@
   background: var(--surface-raised);
   font-size: 0.9rem;
 }
+
 .menu-search-input:focus {
   outline: none;
   border-color: var(--accent);
@@ -82,7 +90,10 @@
   align-items: center;
   justify-content: center;
 }
-.search-clear-btn:hover { background: var(--border-strong); }
+
+.search-clear-btn:hover {
+  background: var(--border-strong);
+}
 
 /* ---- Loading / empty states ---- */
 .menu-loading-state,
@@ -100,133 +111,294 @@
   font-size: 2.2rem;
   animation: spin-loaf 1.6s linear infinite;
 }
+
 @keyframes spin-loaf {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
 }
 
-/* ---- Menu grid: fluid, auto-adjusting columns (no fixed breakpoint needed) ---- */
-.menu-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: var(--space-8);
-  align-items: start;
+/* ---- Category sections ---- */
+.menu-sections {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-12);
 }
 
-.menu-category {
-  position: relative;
-  background: var(--surface-raised);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-lg);
-  padding: var(--space-6);
-  box-shadow: var(--shadow-xs);
-  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
-}
-.menu-category::before {
-  content: "";
-  position: absolute;
-  top: 0; left: var(--space-6); right: var(--space-6);
-  height: 3px;
-  border-radius: 0 0 var(--radius-full) var(--radius-full);
-  background: linear-gradient(90deg, var(--amber-400), var(--compote-500));
-}
-.menu-category:hover {
-  transform: translateY(-3px);
-  box-shadow: var(--shadow-sm);
-}
-
-.menu-category-header {
+.menu-category-heading {
   display: flex;
   align-items: flex-start;
-  gap: var(--space-3);
-  margin-bottom: var(--space-4);
+  gap: var(--space-4);
+  margin-bottom: var(--space-6);
 }
 
 .menu-number {
   font-family: var(--font-display);
-  font-size: 1.6rem;
+  font-size: 2rem;
   font-style: italic;
   color: var(--coffee-300);
   line-height: 1;
 }
 
-.menu-category-header h3 { font-size: 1.25rem; }
-.menu-category-header p { margin-top: 4px; font-size: 0.82rem; color: var(--text-muted); }
-
-.menu-category-image-wrap {
-  border-radius: var(--radius-md);
-  overflow: hidden;
-  aspect-ratio: 16 / 10;
-  margin-bottom: var(--space-5);
+.menu-category-heading h3 {
+  font-size: 1.4rem;
 }
-.menu-feature-image { width: 100%; height: 100%; object-fit: cover; }
 
-/* ---- Dotted-leader item list ---- */
-.dotted-menu-list {
+.menu-category-heading p {
+  margin-top: 4px;
+  font-size: 0.88rem;
+  color: var(--text-muted);
+}
+
+/* =========================================================
+   Menu item cards
+   Desktop: 4 cards visible in one row
+   Additional cards: horizontal scrolling
+========================================================= */
+
+.menu-items-grid {
+  display: grid;
+
+  /* Keep all cards in one horizontal row */
+  grid-auto-flow: column;
+  grid-template-columns: none;
+
+  /* Exactly 4 cards visible on desktop */
+  grid-auto-columns: calc(
+    (100% - (var(--space-6) * 3)) / 4
+  );
+
+  gap: var(--space-6);
+
+  /* Horizontal scrolling */
+  overflow-x: auto;
+  overflow-y: hidden;
+
+  /* Smooth horizontal scrolling */
+  scroll-behavior: smooth;
+  scroll-snap-type: x proximity;
+
+  /* Prevent scrollbar from affecting layout */
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+
+  /* Small space for card shadows */
+  padding: 2px 2px var(--space-3);
+}
+
+/* Hide scrollbar — Chrome / Safari / Edge */
+.menu-items-grid::-webkit-scrollbar {
+  display: none;
+}
+
+/* ---- Individual menu card ---- */
+.menu-item-card {
   display: flex;
   flex-direction: column;
+  height: 100%;
+  min-width: 0;
+
+  background: var(--surface-raised);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+
+  box-shadow: var(--shadow-xs);
+
+  scroll-snap-align: start;
+
+  transition:
+    transform var(--transition-fast),
+    box-shadow var(--transition-fast),
+    border-color var(--transition-fast);
 }
 
-.dotted-item {
-  padding: var(--space-4) 0;
-  border-bottom: 1px solid var(--border);
-}
-.dotted-item:last-child { border-bottom: none; padding-bottom: 0; }
-.dotted-item:first-child { padding-top: 0; }
-
-.dotted-item .item-name {
-  font-weight: 600;
-  font-size: 0.98rem;
-  white-space: normal;
-  flex: 0 1 auto;
-  min-width: fit-content;
-}
-
-.dotted-line {
-  flex: 1 1 24px;
-  min-width: 16px;
-  margin: 0 var(--space-2);
-  border-bottom: 2px dotted var(--border-strong);
+.menu-item-card:hover {
   transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+  border-color: rgba(217, 119, 54, 0.3);
 }
 
-.dotted-item .item-price {
+.menu-item-card.sold-out {
+  opacity: 0.65;
+}
+
+/* ---- Menu item image ---- */
+.menu-item-image-wrap {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  background: var(--surface-sunken);
+}
+
+.menu-item-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+
+  transition: transform 0.6s var(--ease-premium);
+}
+
+.menu-item-card:hover .menu-item-image {
+  transform: scale(1.07);
+}
+
+/* ---- Sold out flag ---- */
+.sold-out-flag {
+  position: absolute;
+  top: var(--space-3);
+  right: var(--space-3);
+
+  padding: 4px 10px;
+
+  border-radius: var(--radius-full);
+  background: rgba(28, 17, 11, 0.82);
+
+  color: var(--flour-50);
+
+  font-size: 0.66rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+
+/* ---- Menu item body ---- */
+.menu-item-body {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: var(--space-5);
+}
+
+/* ---- Item title + price ---- */
+.menu-item-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--space-3);
+}
+
+.menu-item-top h4 {
+  font-size: 1.02rem;
+}
+
+.menu-item-top .item-price {
+  flex-shrink: 0;
+
   font-family: var(--font-display);
   font-weight: 600;
   color: var(--accent-strong);
-  white-space: nowrap;
 }
 
-.dotted-item.sold-out {
-  opacity: 0.5;
+/* ---- Item description ---- */
+.menu-item-desc {
+  margin-top: var(--space-2);
+
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+
+  /* Keep cards equal by limiting description */
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
-.dotted-item.sold-out .item-name { text-decoration: line-through; }
+
+/* ---- Item footer ---- */
+.menu-item-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+
+  margin-top: auto;
+  padding-top: var(--space-4);
+}
+
+/* ---- Item tags ---- */
+.menu-item-tags {
+  display: flex;
+  gap: var(--space-1);
+  flex-wrap: wrap;
+}
 
 .item-tag-pill {
   display: inline-flex;
   padding: 3px 10px;
+
   border-radius: var(--radius-full);
   background: var(--surface-sunken);
-  font-size: 0.68rem;
+
+  font-size: 0.66rem;
   font-weight: 600;
   color: var(--text-muted);
 }
 
-/* ---- Menu footer CTA ---- */
+/* =========================================================
+   Menu footer CTA
+========================================================= */
+
 .menu-footer {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
   gap: var(--space-3);
-  margin-top: var(--space-10);
+
+  margin-top: var(--space-12);
   padding-top: var(--space-8);
+
   border-top: 1px solid var(--border);
+
   text-align: center;
   color: var(--text-muted);
 }
 
+/* =========================================================
+   Tablet
+   Show approximately 2 cards at a time
+========================================================= */
+
+@media (max-width: 900px) {
+  .menu-items-grid {
+    grid-auto-columns: calc(
+      (100% - var(--space-6)) / 2
+    );
+  }
+}
+
+/* =========================================================
+   Mobile
+   Show one large card at a time with horizontal scrolling
+========================================================= */
+
 @media (max-width: 720px) {
-  .menu-controls-bar { flex-direction: column; align-items: stretch; }
-  .menu-search-wrapper { max-width: 100%; }
+  .menu-controls-bar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .menu-search-wrapper {
+    max-width: 100%;
+  }
+
+  .menu-items-grid {
+    grid-auto-columns: minmax(220px, 75%);
+    gap: var(--space-4);
+  }
+}
+
+/* =========================================================
+   Small mobile
+========================================================= */
+
+@media (max-width: 420px) {
+  .menu-items-grid {
+    grid-auto-columns: 88%;
+    gap: var(--space-4);
+  }
 }
