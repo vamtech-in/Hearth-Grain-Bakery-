@@ -8,7 +8,7 @@ const FALLBACK_MENU = [
   { id: 'fb-br-1', name: 'Country Sourdough', category: 'bread', price: 220, description: '24-hour wild-yeast fermented, crackling crust.', tags: ['Bestseller'], inStock: true, image: '/images/wheatleaf.jpg' },
   { id: 'fb-br-2', name: 'Seeded Rye', category: 'bread', price: 200, description: 'Flax, sunflower and caraway seed crust.', tags: [], inStock: true, image: '/images/seeded.jpg' },
   { id: 'fb-br-3', name: 'Baguette Tradition', category: 'bread', price: 140, description: 'Crisp Parisian-style baguette, baked twice daily.', tags: [], inStock: true, image: '/images/Bagutee.jpg' },
-  { id: 'fb-br-4', name: 'Whole Wheat Loaf', category: 'bread', price: 190, description: 'Stoneground whole wheat, tender crumb.', tags: [], inStock: true, image: '/images/wheatleaf.jpg' },
+  { id: 'fb-br-4', name: 'Whole Wheat Loaf', category: 'bread', price: 190, description: 'Stoneground whole wheat, tender crumb.', tags: [], inStock: true, image: '/images/wheat.jpg' },
   { id: 'fb-br-5', name: 'Olive & Rosemary Focaccia', category: 'bread', price: 210, description: 'Kalamata olives, virgin olive oil, sea salt.', tags: [], inStock: true, image: '/images/olive.jpg' },
   { id: 'fb-pa-1', name: 'Butter Croissant', category: 'pastry', price: 110, description: '72-hour laminated, all butter.', tags: ['Bestseller'], inStock: true, image: '/images/butter.jpg' },
   { id: 'fb-pa-2', name: 'Almond Croissant', category: 'pastry', price: 150, description: 'Frangipane-filled, toasted almond flakes.', tags: [], inStock: true, image: '/images/almonds.jpg' },
