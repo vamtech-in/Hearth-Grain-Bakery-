@@ -292,7 +292,7 @@
       "packagingFee": 15,
       "total": 495,
       "notes": "Please slice sourdough",
-      "updatedAt": "2026-09-22T17:34:22.168Z"
+      "updatedAt": "2026-09-25T09:41:05.657Z"
     },
     {
       "id": "HG-7821",
@@ -333,7 +333,7 @@
       "fulfillmentType": "delivery",
       "deliveryAddress": "Flat 402, Green Meadows, 24 Elm Avenue",
       "paymentMethod": "upi",
-      "status": "Cancelled",
+      "status": "Received",
       "items": [
         {
           "id": "pa-2",
@@ -352,7 +352,7 @@
       "packagingFee": 25,
       "total": 665,
       "notes": "Extra hot cappuccino please.",
-      "updatedAt": "2026-09-22T17:34:28.689Z"
+      "updatedAt": "2026-09-25T09:40:35.499Z"
     }
   ],
   "reservations": [
