@@ -17,7 +17,7 @@ const FALLBACK_MENU = [
   { id: 'fb-co-1', name: 'Single-Origin Espresso', category: 'coffee', price: 90, description: 'Rotating single-origin, brewed to order.', tags: [], inStock: true, image: '/images/espresso.jpg' },
   { id: 'fb-co-2', name: 'Oat Milk Flat White', category: 'coffee', price: 130, description: 'Silky micro-foam, house-made oat milk.', tags: ['Popular'], inStock: true, image: '/images/oat.jpg' },
   { id: 'fb-co-3', name: 'Cold Brew', category: 'coffee', price: 140, description: '18-hour steeped, smooth and low-acid.', tags: [], inStock: true, image: '/images/cold.jpg' },
-  { id: 'fb-co-4', name: 'Cappuccino', category: 'coffee', price: 120, description: 'Rich espresso with velvety steamed milk and foam.', tags: [], inStock: true, image: '/images/espresso.jpg' }
+  { id: 'fb-co-4', name: 'Cappuccino', category: 'coffee', price: 120, description: 'Rich espresso with velvety steamed milk and foam.', tags: [], inStock: true, image: '/images/cappuccino.jpg' }
 ];
 
 export default function Menu() {
