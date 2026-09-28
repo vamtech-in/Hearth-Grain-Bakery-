@@ -53,7 +53,7 @@
         "Vegan"
       ],
       "inStock": true,
-      "image": "/images/wheatleaf.jpg"
+      "image": "/images/wheat.jpg"
     },
     {
       "id": "br-5",
@@ -122,7 +122,7 @@
         "Seasonal Fruit"
       ],
       "inStock": true,
-      "image": "/images/almonds.jpg"
+      "image": "/images/danish.jpg"
     },
     {
       "id": "pa-5",
@@ -161,7 +161,7 @@
         "Aromatic"
       ],
       "inStock": true,
-      "image": "/images/espresso.jpg"
+      "image": "/images/americano.jpg"
     },
     {
       "id": "co-3",
@@ -174,7 +174,7 @@
         "Velvety"
       ],
       "inStock": true,
-      "image": "/images/espresso.jpg"
+      "image": "/images/cappuccino.jpg"
     },
     {
       "id": "co-4",
