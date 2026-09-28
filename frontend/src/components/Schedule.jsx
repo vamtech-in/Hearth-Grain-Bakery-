@@ -99,7 +99,7 @@ export default function Schedule() {
         <div className="today-bake">
           <div>
             <span className="today-bake-label">
-              {isToday ? "SUNDAY'S SPECIALTY BAKE" : `${activeSpecial.name.toUpperCase()}'S SPECIALTY BAKE`}
+              {isToday ? `${activeSpecial.name.toUpperCase()}'S SPECIALTY BAKE (TODAY)` : `${activeSpecial.name.toUpperCase()}'S SPECIALTY BAKE`}
             </span>
             <h3>{activeSpecial.bake}</h3>
             <p style={{ marginTop: '8px', fontSize: '15px', color: 'var(--text-light)' }}>
@@ -117,7 +117,7 @@ export default function Schedule() {
             onClick={handlePreorder}
             style={{ whiteSpace: 'nowrap', flexShrink: 0 }}
           >
-            {isToday ? "Pre-order for Sunday" : `Pre-order for ${activeSpecial.name}`}
+            {isToday ? `Pre-order for Today (${activeSpecial.name})` : `Pre-order for ${activeSpecial.name}`}
             <span aria-hidden="true">→</span>
           </button>
         </div>
