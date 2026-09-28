@@ -88,109 +88,6 @@ export default function Header() {
 
 
         {/* =====================================================
-            HEADER ACTIONS
-
-            Cart + Book Table + Mobile Menu
-            These stay visible outside the mobile nav.
-        ===================================================== */}
-
-        <div className="header-right-tools">
-
-          {/* ---------------------------------------------------
-              Cart
-          --------------------------------------------------- */}
-
-          <button
-            type="button"
-            className="cart-toggle-badge-btn"
-            onClick={() => setIsCartOpen(true)}
-            aria-label={`View shopping basket with ${cartCount} ${
-              cartCount === 1 ? 'item' : 'items'
-            }`}
-          >
-            <span
-              className="header-action-icon"
-              aria-hidden="true"
-            >
-              🛒
-            </span>
-
-            <span className="basket-text">
-              Cart
-            </span>
-
-            {cartCount > 0 && (
-              <span
-                className="cart-counter-pill"
-                aria-hidden="true"
-              >
-                {cartCount}
-              </span>
-            )}
-          </button>
-
-
-          {/* ---------------------------------------------------
-              Book a Table
-
-              IMPORTANT:
-              This is intentionally outside nav-links so it
-              remains visible on tablet/mobile.
-          --------------------------------------------------- */}
-
-          <button
-            type="button"
-            className="button button-primary header-book-button"
-            onClick={() =>
-              handleNavAction(() =>
-                setIsReservationOpen(true)
-              )
-            }
-            aria-label="Book a table"
-          >
-            <span
-              className="nav-button-icon"
-              aria-hidden="true"
-            >
-              ☕
-            </span>
-
-            <span className="header-book-text">
-              Book a Table
-            </span>
-          </button>
-
-
-          {/* ---------------------------------------------------
-              Mobile menu toggle
-          --------------------------------------------------- */}
-
-          <button
-            id="navToggle"
-            className={`nav-toggle ${
-              navOpen ? 'open' : ''
-            }`}
-            type="button"
-            aria-label={
-              navOpen
-                ? 'Close navigation menu'
-                : 'Open navigation menu'
-            }
-            aria-expanded={navOpen}
-            aria-controls="navLinks"
-            onClick={() =>
-              setNavOpen((previous) => !previous)
-            }
-          >
-            <span />
-            <span />
-            <span />
-          </button>
-
-        </div>
-
-
-        {/* =====================================================
             NAVIGATION
         ===================================================== */}
 
@@ -321,6 +218,109 @@ export default function Header() {
           </button>
 
         </nav>
+
+
+        {/* =====================================================
+            HEADER ACTIONS
+
+            Cart + Book Table + Mobile Menu
+            These stay visible outside the mobile nav.
+        ===================================================== */}
+
+        <div className="header-right-tools">
+
+          {/* ---------------------------------------------------
+              Cart
+          --------------------------------------------------- */}
+
+          <button
+            type="button"
+            className="cart-toggle-badge-btn"
+            onClick={() => setIsCartOpen(true)}
+            aria-label={`View shopping basket with ${cartCount} ${
+              cartCount === 1 ? 'item' : 'items'
+            }`}
+          >
+            <span
+              className="header-action-icon"
+              aria-hidden="true"
+            >
+              🛒
+            </span>
+
+            <span className="basket-text">
+              Cart
+            </span>
+
+            {cartCount > 0 && (
+              <span
+                className="cart-counter-pill"
+                aria-hidden="true"
+              >
+                {cartCount}
+              </span>
+            )}
+          </button>
+
+
+          {/* ---------------------------------------------------
+              Book a Table
+
+              IMPORTANT:
+              This is intentionally outside nav-links so it
+              remains visible on tablet/mobile.
+          --------------------------------------------------- */}
+
+          <button
+            type="button"
+            className="button button-primary header-book-button"
+            onClick={() =>
+              handleNavAction(() =>
+                setIsReservationOpen(true)
+              )
+            }
+            aria-label="Book a table"
+          >
+            <span
+              className="nav-button-icon"
+              aria-hidden="true"
+            >
+              ☕
+            </span>
+
+            <span className="header-book-text">
+              Book a Table
+            </span>
+          </button>
+
+
+          {/* ---------------------------------------------------
+              Mobile menu toggle
+          --------------------------------------------------- */}
+
+          <button
+            id="navToggle"
+            className={`nav-toggle ${
+              navOpen ? 'open' : ''
+            }`}
+            type="button"
+            aria-label={
+              navOpen
+                ? 'Close navigation menu'
+                : 'Open navigation menu'
+            }
+            aria-expanded={navOpen}
+            aria-controls="navLinks"
+            onClick={() =>
+              setNavOpen((previous) => !previous)
+            }
+          >
+            <span />
+            <span />
+            <span />
+          </button>
+
+        </div>
 
       </div>
     </header>
