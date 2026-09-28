@@ -401,6 +401,14 @@
     margin: 0 auto;
     width: 100%;
   }
+
+  .badge-stats-row {
+    justify-content: center;
+  }
+
+  .story-value-card {
+    text-align: left;
+  }
 }
 
 @media (max-width: 640px) {
