@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom'; // 1. useNavigate import karein
 import { useCart } from '../context/CartContext';
 import { bakeryApi } from '../services/api';
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
-  const { setIsAdminOpen, setIsTrackerOpen, setIsReservationOpen, showToast } = useCart();
+  const navigate = useNavigate(); // 2. Navigate hook initialize karein
+  const { setIsTrackerOpen, setIsReservationOpen, showToast } = useCart(); // setIsAdminOpen hata diya gaya hai
   const [email, setEmail] = useState('');
   const [isSubscribing, setIsSubscribing] = useState(false);
 
@@ -34,7 +36,7 @@ export default function Footer() {
         <div className="footer-brand">
           <a href="#home" className="brand">
             <img
-              src="/favicon.png"
+              src="/favicon.jpg"
               alt="Hearth & Grain"
               className="brand-logo"
             />
@@ -88,11 +90,12 @@ export default function Footer() {
           <a href="tel:+919876543210">Call: +91 98765 43210</a>
           <a href="mailto:hello@hearthandgrain.com">hello@hearthandgrain.com</a>
 
+          {/* 3. Updated Staff Portal Trigger to route to /admin */}
           <div className="staff-portal-trigger-box" style={{ marginTop: '14px' }}>
             <button 
               type="button"
               className="staff-portal-btn"
-              onClick={() => setIsAdminOpen(true)}
+              onClick={() => navigate('/admin')}
               title="Bakery Staff Kitchen & Order Portal"
             >
               🔒 Staff Kitchen Portal

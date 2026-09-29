@@ -74,7 +74,7 @@ export default function Header() {
         >
           <span className="brand-logo-wrap">
             <img
-              src="/favicon.png"
+              src="/favicon.jpg"
               alt="Hearth & Grain"
               className="brand-logo"
             />
