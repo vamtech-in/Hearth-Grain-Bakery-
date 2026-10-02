@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import { useCart } from '../context/CartContext';
 
 export default function Header() {
@@ -195,6 +196,11 @@ export default function Header() {
 
 
           {/* Track Order */}
+
+          <Link to="/dashboard" onClick={closeNavigation}>
+            <span className="nav-emoji" aria-hidden="true">◷</span>
+            <span>My dashboard</span>
+          </Link>
 
           <button
             type="button"

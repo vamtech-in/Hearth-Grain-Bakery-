@@ -73,7 +73,7 @@ const ARTISAN_DETAILS = {
     allergens: ['Gluten (Wheat)', 'Dairy (Normandy Butter)'],
     dietary: ['Vegetarian', 'AOP Protected Butter'],
     bestServed: 'Warm from the morning 8:00 AM bake with café au lait',
-    pairing: { name: 'Cappuccino', price: 120, category: 'coffee', image: '/images/cappuccino.jpg' }
+    pairing: { name: 'Cappuccino', price: 120, category: 'coffee', image: '/images/cappuccino-v2.jpg' }
   },
   'Almond Croissant': {
     hydration: 'N/A (Laminated)',

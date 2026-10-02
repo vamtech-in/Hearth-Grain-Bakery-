@@ -128,7 +128,7 @@ const FALLBACK_MENU = [
       'Rich espresso poured over hot filtered spring water.',
     tags: ['Smooth', 'Aromatic'],
     inStock: true,
-    image: '/images/americano.jpg'
+    image: '/images/americano-v2.jpg'
   },
   {
     id: 'fb-co-3',
@@ -139,7 +139,7 @@ const FALLBACK_MENU = [
       'Equal parts espresso, steamed milk, and velvety foam.',
     tags: ['Micro-foam', 'Velvet'],
     inStock: true,
-    image: '/images/cappuccino.jpg'
+    image: '/images/cappuccino-v2.jpg'
   },
   {
     id: 'fb-co-4',
@@ -188,16 +188,16 @@ const GLOBAL_FALLBACK_IMAGE = '/images/wheatleaf.jpg';
 
   frontend will still display:
 
-      Americano -> americano.jpg
+      Americano -> americano-v2.jpg
 */
 const PRODUCT_IMAGE_MAP = {
   // Coffee
   espresso: '/images/espresso.jpg',
   'single-origin espresso': '/images/espresso.jpg',
 
-  americano: '/images/americano.jpg',
+  americano: '/images/americano-v2.jpg',
 
-  cappuccino: '/images/cappuccino.jpg',
+  cappuccino: '/images/cappuccino-v2.jpg',
 
   'cold brew': '/images/cold.jpg',
 
@@ -319,9 +319,9 @@ function resolveKnownImageName(path) {
     '/images/Bagutte.jpg': '/images/baguette.jpg',
     '/images/Baguette.jpg': '/images/baguette.jpg',
 
-    '/images/americano.JPG': '/images/americano.jpg',
+    '/images/americano.JPG': '/images/americano-v2.jpg',
     '/images/espresso.JPG': '/images/espresso.jpg',
-    '/images/cappuccino.JPG': '/images/cappuccino.jpg',
+    '/images/cappuccino.JPG': '/images/cappuccino-v2.jpg',
     '/images/cold.JPG': '/images/cold.jpg',
     '/images/oat.JPG': '/images/oat.jpg',
 
@@ -356,14 +356,14 @@ function getProductImageByName(item) {
 
   // Coffee
   if (name.includes('americano')) {
-    return '/images/americano.jpg';
+    return '/images/americano-v2.jpg';
   }
 
   if (
     name.includes('cappuccino') ||
     name.includes('cappucino')
   ) {
-    return '/images/cappuccino.jpg';
+    return '/images/cappuccino-v2.jpg';
   }
 
   if (

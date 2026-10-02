@@ -123,7 +123,7 @@ export default function AdminDashboardPage() {
   const [authError, setAuthError] = useState('');
   const [authLoading, setAuthLoading] = useState(false);
 
-  const [activeTab, setActiveTab] = useState('orders');
+  const [activeTab, setActiveTab] = useState('analytics');
   const [soundEnabled, setSoundEnabled] = useState(
     () => localStorage.getItem('hg_sound_enabled') !== 'false'
   );
@@ -921,6 +921,30 @@ export default function AdminDashboardPage() {
     [menuItems]
   );
 
+  const weeklyOrderActivity = useMemo(() => {
+    const today = new Date();
+    return Array.from({ length: 7 }, (_, index) => {
+      const day = new Date(today.getFullYear(), today.getMonth(), today.getDate() - 6 + index);
+      const key = `${day.getFullYear()}-${String(day.getMonth() + 1).padStart(2, '0')}-${String(day.getDate()).padStart(2, '0')}`;
+      const dayOrders = orders.filter((order) => {
+        if (!order.createdAt) return false;
+        const created = new Date(order.createdAt);
+        return Number.isFinite(created.getTime()) &&
+          created.getFullYear() === day.getFullYear() &&
+          created.getMonth() === day.getMonth() &&
+          created.getDate() === day.getDate();
+      });
+
+      return {
+        key,
+        label: day.toLocaleDateString('en-IN', { weekday: 'short' }),
+        count: dayOrders.length,
+      };
+    });
+  }, [orders]);
+
+  const busiestDayCount = Math.max(1, ...weeklyOrderActivity.map((day) => day.count));
+
   const resetAddForm = () => {
     setNewItem({
       name: '',
@@ -1449,7 +1473,7 @@ export default function AdminDashboardPage() {
                 <span>📊</span>
                 <div>
                   <strong>
-                    Analytics
+                    Dashboard
                   </strong>
                   <small>
                     Business overview
@@ -2453,13 +2477,11 @@ export default function AdminDashboardPage() {
                       </span>
 
                       <h2>
-                        Analytics & Reports
+                        Bakery dashboard
                       </h2>
 
                       <p>
-                        Current operational
-                        metrics from your bakery
-                        system.
+                        A live snapshot of orders, sales, and today’s bakery operations.
                       </p>
                     </div>
                   </div>
@@ -2552,6 +2574,46 @@ export default function AdminDashboardPage() {
                             Table bookings
                           </small>
                         </div>
+                      </div>
+
+                      <div className="dashboard-insights">
+                        <section className="dashboard-insight-card" aria-label="Orders over the past seven days">
+                          <div className="dashboard-insight-heading">
+                            <div><span>ORDER FLOW</span><h3>Last 7 days</h3></div>
+                            <span className="dashboard-insight-total">{weeklyOrderActivity.reduce((sum, day) => sum + day.count, 0)} orders</span>
+                          </div>
+                          <div className="weekly-order-chart">
+                            {weeklyOrderActivity.map((day) => (
+                              <div className="weekly-order-column" key={day.key}>
+                                <span className="weekly-order-count">{day.count || ''}</span>
+                                <div className="weekly-order-track" title={`${day.count} orders`}>
+                                  <span style={{ height: `${day.count ? Math.max(10, (day.count / busiestDayCount) * 100) : 3}%` }} />
+                                </div>
+                                <span className="weekly-order-label">{day.label}</span>
+                              </div>
+                            ))}
+                          </div>
+                        </section>
+
+                        <section className="dashboard-insight-card" aria-label="Recent orders">
+                          <div className="dashboard-insight-heading">
+                            <div><span>FRESH FROM THE COUNTER</span><h3>Recent orders</h3></div>
+                            <button type="button" className="dashboard-view-all" onClick={() => setActiveTab('orders')}>View all →</button>
+                          </div>
+                          {orders.length ? (
+                            <div className="dashboard-recent-orders">
+                              {orders.slice(0, 4).map((order) => (
+                                <button type="button" className="dashboard-recent-order" key={order.id} onClick={() => { setSelectedOrder(order); setActiveTab('orders'); }}>
+                                  <span className="dashboard-recent-avatar">{String(order.customerName || 'G').trim().charAt(0).toUpperCase()}</span>
+                                  <span className="dashboard-recent-copy"><strong>{order.customerName || 'Guest'}</strong><small>#{order.id} · {formatTime(order.createdAt)}</small></span>
+                                  <span className="dashboard-recent-total">{formatCurrency(order.total)}</span>
+                                </button>
+                              ))}
+                            </div>
+                          ) : (
+                            <div className="dashboard-no-orders">New orders will appear here once received.</div>
+                          )}
+                        </section>
                       </div>
 
                       <div className="analytics-summary">

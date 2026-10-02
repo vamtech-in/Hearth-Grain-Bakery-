@@ -1,0 +1,16 @@
+/* Small interaction and spacing refinements shared across the storefront. */
+.site-header.is-scrolled { box-shadow: 0 8px 28px rgba(47, 29, 18, .09); }
+.nav-links a, .nav-link-btn { transition: color var(--transition-fast), transform var(--transition-fast); }
+.nav-links a:hover, .nav-link-btn:hover { transform: translateY(-1px); }
+.menu-item-card { border-color: rgba(79, 49, 38, .13); box-shadow: 0 8px 22px rgba(50, 32, 20, .045); transition: transform .24s var(--ease-premium), box-shadow .24s var(--ease-premium), border-color .24s ease; }
+.menu-item-card:hover { transform: translateY(-5px); border-color: rgba(169, 96, 49, .32); box-shadow: 0 18px 38px rgba(50, 32, 20, .11); }
+.menu-item-image { transition: transform .45s var(--ease-premium); }
+.menu-item-card:hover .menu-item-image { transform: scale(1.035); }
+.category-tab-btn, .button, .review-card, .schedule-day, .story-value-card { transition-duration: .22s; }
+.review-card:hover, .story-value-card:hover { transform: translateY(-3px); box-shadow: 0 16px 38px rgba(50, 32, 20, .1); }
+.footer-link-btn { transition: color var(--transition-fast), transform var(--transition-fast); }
+.footer-link-btn:hover { transform: translateX(3px); }
+
+@media (prefers-reduced-motion: reduce) {
+  .menu-item-card, .menu-item-image, .review-card, .story-value-card { transition: none; }
+}

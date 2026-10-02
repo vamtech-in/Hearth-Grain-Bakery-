@@ -84,6 +84,9 @@ export default function Footer() {
           <button type="button" className="footer-link-btn" onClick={() => setIsTrackerOpen(true)}>
             🔍 Track Your Order
           </button>
+          <button type="button" className="footer-link-btn" onClick={() => navigate('/dashboard')}>
+            ◷ Your Order Dashboard
+          </button>
           <button type="button" className="footer-link-btn" onClick={() => setIsReservationOpen(true)}>
             📅 Book a Table
           </button>

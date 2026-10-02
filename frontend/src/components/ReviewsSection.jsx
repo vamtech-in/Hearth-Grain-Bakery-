@@ -63,10 +63,13 @@ export default function ReviewsSection() {
           <div className="reviews-heading-action">
             <p>From neighbourhood regulars to weekend travelers, here is what guests have to say.</p>
             <button 
-              className="button button-secondary review-trigger-btn"
+              type="button"
+              className="button button-primary review-trigger-btn"
               onClick={() => setIsModalOpen(true)}
+              aria-haspopup="dialog"
+              aria-expanded={isModalOpen}
             >
-              ★ Leave a Review
+              <span aria-hidden="true">★</span> Leave a Review
             </button>
           </div>
         </div>
@@ -97,15 +100,18 @@ export default function ReviewsSection() {
               className="modal-content review-modal"
               onClick={e => e.stopPropagation()}
               role="dialog"
+              aria-modal="true"
+              aria-labelledby="review-modal-title"
             >
               <div className="modal-header">
                 <div>
                   <span className="eyebrow">SHARE YOUR EXPERIENCE</span>
-                  <h3>Write a Bakery Review</h3>
+                  <h3 id="review-modal-title">Write a Bakery Review</h3>
                 </div>
                 <button 
                   className="modal-close-btn"
                   onClick={() => setIsModalOpen(false)}
+                  aria-label="Close review form"
                 >
                   ✕
                 </button>

@@ -7,9 +7,12 @@ export default function Hero() {
       {/* Background */}
       <div className="hero-bg" aria-hidden="true">
         <img
-         src="/images/hero.jpg"
-         alt=""
-        className="hero-bg-image"
+          src="/images/hero.jpg"
+          alt=""
+          className="hero-bg-image"
+          loading="eager"
+          fetchPriority="high"
+          decoding="async"
         />
         <div className="hero-bg-overlay" />
         <div className="hero-bg-grain" />
@@ -23,7 +26,7 @@ export default function Hero() {
           {/* Eyebrow */}
           <div className="eyebrow hero-eyebrow animate-fade-up">
             <span className="eyebrow-line" />
-            BAKED WITH PATIENCE
+            SMALL BATCH · BAKED WITH PATIENCE
           </div>
 
           {/* Main heading */}
@@ -34,9 +37,8 @@ export default function Hero() {
 
           {/* Description */}
           <p className="hero-description animate-fade-up delay-2">
-            Slow-fermented sourdough, golden pastries and honest ingredients.
-            Every morning, we bake with care so you can start your day with
-            something special.
+            Slow-fermented sourdough, golden pastries, and thoughtful coffee.
+            Made by hand each morning with ingredients we believe in.
           </p>
 
           {/* Product philosophy */}
@@ -59,8 +61,8 @@ export default function Hero() {
               <span aria-hidden="true">→</span>
             </a>
 
-            <a href="#story" className="button button-outline">
-              Our Story
+            <a href="#visit" className="button button-outline">
+              Visit the bakery
             </a>
           </div>
 
@@ -101,7 +103,7 @@ export default function Hero() {
 
             <div className="hero-info-row">
               <span>Fresh batch</span>
-              <strong>Every morning</strong>
+              <strong>Small batches</strong>
             </div>
 
             <div className="hero-info-row">

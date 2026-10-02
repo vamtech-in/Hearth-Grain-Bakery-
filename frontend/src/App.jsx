@@ -62,9 +62,9 @@ export default function App() {
           
           {/* Dedicated Full-Screen Standalone Admin Dashboard */}
           <Route path="/admin" element={<AdminDashboardPage />} />
-          
+
           {/* Fallback route redirection */}
-          <Route path="*" element='/' />
+          <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </Router>
     </CartProvider>
